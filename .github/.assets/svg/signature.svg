@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <style>
+    .signature-text {
+      font-family: "Brush Script MT", "Zapfino", "Segoe Script", cursive;
+      font-size: 48px;
+      fill: #000000;
+      font-weight: bold;
+    }
+  </style>
+  <text x="50%" y="60%" text-anchor="middle" class="signature-text">异飨客</text>
+</svg>
