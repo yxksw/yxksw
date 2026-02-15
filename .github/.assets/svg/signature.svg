@@ -3,7 +3,7 @@
     .signature-text {
       font-family: "Brush Script MT", "Zapfino", "Segoe Script", cursive;
       font-size: 48px;
-      fill: #000000;
+      fill: #23B3F7;
       font-weight: bold;
     }
   </style>
