@@ -26,6 +26,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/bili/, '')
       },
+      '/api/atom': {
+        target: 'https://cofe.381359.xyz',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/atom/, '/atom.xml')
+      }
     }
   }
 })

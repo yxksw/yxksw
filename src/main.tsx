@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import packageConfig from '../package.json'
 import './index.css'
 
-console.log(' %c MiaoHome %c ' + packageConfig.version + ' %c https://github.com/MiaoMint/MiaoHome',
+console.log(' %c Yxksw %c ' + packageConfig.version + ' %c https://github.com/yxksw/yxksw',
   'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
   'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
   'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
@@ -13,7 +13,7 @@ console.log(' %c MiaoHome %c ' + packageConfig.version + ' %c https://github.com
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,

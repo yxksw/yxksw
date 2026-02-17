@@ -1,14 +1,18 @@
 import { Route, Routes, Link, useLocation, Outlet } from "react-router-dom";
-import { Home, Github, Book, Film } from "lucide-react";
+import { Home, Github, Book, Film, Link2 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import BangumiView from "./view/BangumiView";
 import BlogView from "./view/BlogView";
 import GithubView from "./view/GithubView";
 import HomeView from "./view/HomeView";
+import FriendsView from "./view/FriendsView";
+import FCircleView from "./view/FCircleView";
+import ShuoshuoView from "./view/ShuoshuoView";
 import { useEffect } from "react";
 
 export default function App() {
   const location = useLocation()
+  const isWidePage = location.pathname === '/friends' || location.pathname === '/fcircle'
 
   // 切换页面自动滚动到顶部
   useEffect(() => {
@@ -22,12 +26,15 @@ export default function App() {
 
   return (
     <>
-      <div className="p-3 md:w-3/5 m-auto pt-40 pb-40">
+      <div className={`p-5 m-auto pt-40 pb-40 ${isWidePage ? 'md:w-4/5 max-w-7xl' : 'md:w-3/5'}`}>
         <Routes>
           <Route path="/" element={<HomeView />}></Route>
           <Route path="/github" element={<GithubView />}></Route>
           <Route path="/blog" element={<BlogView />}></Route>
           <Route path="/bangumi" element={<BangumiView />}></Route>
+          <Route path="/friends" element={<FriendsView />}></Route>
+          <Route path="/fcircle" element={<FCircleView />}></Route>
+          <Route path="/shuoshuo" element={<ShuoshuoView />}></Route>
         </Routes>
       </div>
       <Nav />

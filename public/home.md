@@ -1,15 +1,73 @@
 ### <p align="center">👋你好！</p>
 
-<p align="center">我是<font color="blue">❖星港◎Star☆</font>，你可以叫我星港</p>
+<p align="center">我是<font color="blue">异飨客</font>，你可以叫我克喵、钟神秀</p>
 
-<p align="center">本人对写网站和搞QQ机器人都略有涉猎</p>
+<p align="center">我喜欢修改博客，在博客里记录我的生活日常、踩坑记录和资源分享。</p>
 
-得益于我“什么都想捣鼓一下试试”的“探索能力”，所以自己踩过了一堆坑，对代码的逻辑也越来越清晰（尽管大部分还是靠英文意思去猜，但解决基本问题已经足够了），自然也能解决不少小问题
+<div align="center">
+  <img style="display: inline-block; margin-right: 10px;" src="https://komarev.com/ghpvc/?username=yxksw&style=flat&label=View&color=000000" alt="View">
+  <img style="display: inline-block;" src="https://shields.jannchie.com/endpoint?style=social&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D36274" alt="Wakatime">
+</div>
 
-我不是什么大佬，更算不上大佬，所以我是可以理解新手会有踩坑的问题并乐于帮你解决问题的
+> 本主页来源于[**星港**](https://github.com/Stars-harbor/Home)，在此基础上进行了些许修改，感谢大佬的开源~
 
-<font color="red">但我也不是什么“随便你怎么说都能乐呵呵给你解答问题”的人</font>，也许你在不同的地方见到过我发火或者怼人的样子，甚至你就是那个被我怼过的人，那很可能就是<font color="red">我当初自己捣鼓、或者在我不懂去找别人解释求助的时候稍微一问就能理解的东西，现在却怎么给你解释你都听不懂，厌蠢症犯了而已</font>，记得以后不要犯这种蠢了就好
+<strong>我是一个学生、博客写作者、资源分享者。</strong>
 
-当然不排除你是另一种可能，就是<font color="red">你说话的语气、问问题的方式让我听着难受</font>，或许是让我感觉到<font color="red">给你答疑解惑成了命令</font>、或许是<font color="red">你明明什么都不懂，教程又看不懂，却又什么都想要</font>、抑或是<font color="red">张嘴闭嘴把“我问了AI”挂在嘴边（你这么会用AI你去和AI过吧，问我们干嘛啊🙄）</font>
+- **个人背景**
+  - 目前大三，南京双非二本自动化学生
+  - 业余时间喜欢写写改改博客和开发一些小项目
+  - 接触过的博客框架：Hexo、Hugo、Vitepress、Vuepress 等
+  - 推荐的主题：
+    - Hexo：solitude主题 + Qexo（目前使用星港改版）
+    - Astro：各种主题（最熟悉的一种）
+    - Nuxt：纸鹿的clarity主题（改Hexo stellar主题时的完美解决方案 *无拉踩!*）
+    - NotionNext：适合常用Notion记笔记的用户
+    - Typecho：闲置时搭建（有4个虚拟主机）
+    - 2025-blog-public：风格不错，学到了新的写文章方式
 
-除此以外，你见到的基本都是高兴的、愿意跟你瞎聊天、愿意为你答疑解惑（在力所能及的范围内）、愿意和你交朋友的我
+- **兴趣爱好**
+  - 纯纯宅男，活跃在知识区、时政区、游戏区
+  - 游戏：沙盒三件套（饥荒、泰拉瑞亚、我的世界），目前在玩我的世界
+  - 阅读：喜欢看小说，不看女频，其他类型写得好的都会看
+  - 其他：在TG刷刷资源频道，分享一些资源
+
+### 其他页面
+
+<div align="center">
+  <a href="/friends"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8F%8B%E9%93%BE-ff69b4?style=flat&color=black&logo=link&logoColor=white" alt="友链"></a>
+  <a href="/fcircle"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E6%9C%8B%E5%8F%8B%E5%9C%88-00bfff?style=flat&color=black&logo=users&logoColor=white" alt="朋友圈"></a>
+  <a href="/shuoshuo"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
+</div>
+
+### 联系我
+
+<div align="center">
+  <a href="mailto:me@381359.xyz"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/QQEmail%20%40-2CA5E0?style=flat&color=black&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACg0lEQVR4nO2YW08TQRiG94fgpeEvWhQ1xgjRaAqWQ7SlpSA9UBsoRIkY7YUJMQYVRcGWtgoUEHrcng+7r5lpd6Gi7pZuu5s4TzJXO4f36c580yzHMRgMBoPBMBgALgHwAeChPzwAP4D+dsInYTySAPoUBfh8PgCDks3nFxQFhm0u4c2HTRiN9a9h3LV7BEWBK2YrSJtZfoliuax3bpQrVbhXXtNMpCkKfApFcXPCSTsP29yIxY90C797eIx7di/NcmN8Gu+3wsoCZGAqm8OEZ4kOHBidwuraOgRR7FlwEQDZxldHp2gGi2sBJ+ksfaZKgCAIAg1uGrHRScbdAaSy3a+quUIRNv9zuqbJbEUguIZ6XZCfqxaQ2NmN487jOToh2Vob3yJdC/8l8h23JmfoWrcfPcF2bO9cn7YFCPliCY7FF/JB8qwEUa3VNAteq9fpL21qzk/eAF8o/rHvhQSkffn28xYGLXa6yAOnDwcnnd93P5NpjMz66ZzXHtoRfLcB8R/n7cICEkeJFMyzT+UFyWETO6jtgxYHnev+9DzixwnFMR0LEKq1xiuXtpQzsIpCSf2dUSpXMPfsVcuWrFSrqsZqIiCxGY61HLrQj33FMZG9AwxZXXJt/7i9086S2goQ0nwOk/PLrWVPOC17v5flgWZZHnMvIplpvyxrLkDDieK5cIlMtlXS27gYyb3yN0ndBCSi+4cYsrlO74xQlDbprwl5Rvp0AtdNAemAus4cUPmgL7V30HUTOFsir4855FKrFVyvBKQ7gzQt4Xop0A04JqAz3P8gwMO4ZNQIkI9IRsWnRqDfwB+2LisKNCX6AHjJtyS9U6ORwac6PIPBYDAYDK53/AKTcNBwHtWhrgAAAABJRU5ErkJggg==" alt="Email"></a>
+  <a href="https://t.me/zsxcoderchat_bot"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/Telegram%20%40-2CA5E0?style=flat&color=black&logo=telegram" alt="Telegram"></a>
+  <a href="https://discord.com/invite/xEsQhD8QQv"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/Discord%20%40-5865F2?style=flat&color=black&logo=discord" alt="Discord"></a>
+  <a href="https://space.bilibili.com/3546643173477234"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-Bilibili%20%E2%98%85-black?labelColor=black&logo=bilibili&logoColor=white&style=flat" alt="Bilibili"></a>
+  <a href="https://mastodon.social/@yxksw"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-Mastodon%20%E2%98%85-black?labelColor=black&logo=mastodon&logoColor=white&style=flat" alt="Mastodon"></a>
+  <a href="https://qm.qq.com/q/wknwCtZq6Y"><img style="display: inline-block;" src="https://img.shields.io/badge/-QQ%20%E2%98%85-black?labelColor=black&logo=qq&logoColor=white&style=flat" alt="QQ"></a>
+</div>
+
+### 状态
+
+[![Dashboard stats of @yxksw](https://next.ossinsight.io/widgets/official/compose-user-dashboard-stats/thumbnail.png?user_id=260226767&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-user-dashboard-stats?user_id=260226767)
+
+<!-- Made with [OSS Insight](https://ossinsight.io/) -->
+
+#### Skills ~~(Still Learning)~~
+
+![skills](https://go-skill-icons.vercel.app/api/icons?i=c,cpp,java,python,js,html,css,ts,astro,powershell,linux,github,githubactions,bash,markdown&theme=light)
+
+#### Tools & Platform ~~(Maybe I use)~~
+
+![tools & platform](https://go-skill-icons.vercel.app/api/icons?i=vscode,pycharm,idea,cursor,chatgpt,edge,chrome,vercel,cloudflare,git,windows,debian,centos,ubuntu,docker&theme=light)
+
+#### Others
+
+[![Yxksw's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=yxksw&theme=github-light&radius=16&height=300&border_color=E0E0E0)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
+<div align="right">
+  <img src=".github/.assets/svg/signature.svg" width="150" alt="signature">
+</div>

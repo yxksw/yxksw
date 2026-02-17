@@ -18,12 +18,12 @@ export default function HomeView() {
     }
     request.get(
       HomeMD === "Github" ?
-        `https://raw.githubusercontent.com/${GithubUsername}/${GithubUsername}/main/readme.md`
+        `https://raw.githubusercontent.com/${GithubUsername}/${GithubUsername}/main/README.md`
         : HomeMD
     ).then((res) => {
       setIntroduce(marked.parse(res))
     }).catch((err) => {
-      setIntroduce(err)
+      setIntroduce(`<div class="text-red-500">加载失败: ${err.message}</div>`)
     }).finally(() => {
       setLoading(false)
     })

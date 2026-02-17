@@ -12,9 +12,16 @@ export default function GithubView() {
   const [repos, setRepos] = useState<Array<GithubCardProps>>()
   const [error, setError] = useState<Error>()
   useEffect(() => {
-    request.get(`https://api.github.com/users/${GithubUsername}/repos?sort=updated`)
-      .then((res: GithubCardProps[]) => {
-        setRepos(res)
+    const token = import.meta.env.VITE_GITHUB_TOKEN
+    const options: any = {}
+    if (token) {
+      options.headers = {
+        'Authorization': `token ${token}`
+      }
+    }
+    request.get(`https://api.github.com/users/${GithubUsername}/repos?sort=updated`, options)
+      .then((res: any) => {
+        setRepos(res.data || res)
       }).catch((err) => {
         setError(err)
       })

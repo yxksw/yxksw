@@ -2,22 +2,22 @@ export default {
 
     // 👇页面内容相关配置
     // 名字
-    Name: "❖星港◎Star☆",
+    Name: "塔罗会",
 
     // 头像
-    Avatar: "https://bu.dusays.com/2025/04/11/67f92f6fcfb26.webp",
+    Avatar: "https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256",
 
     // 介绍
-    Desc: "👋 Hi! 欢迎来到 ❖星港◎Star☆ 的主页",
+    Desc: "👋 Hi! 欢迎来到 异飨客 的主页",
 
     // Github 用户名
-    GithubUsername: "Stars-harbor",
+    GithubUsername: "yxksw",
 
     // 博客RSS订阅
-    BlogRSS: "https://blog.starsharbor.com/atom.xml",
+    BlogRSS: "https://cofe.381359.xyz/atom.xml",
 
     // 博客链接
-    BlogUrl: "https://blog.starsharbor.com",
+    BlogUrl: "https://cofe.381359.xyz",
 
     // 油管链接
     YoutubeUrl: "",
@@ -26,7 +26,7 @@ export default {
     TwitterUrl: "",
 
     // B站UID
-    BilibiliUid: "345815762",
+    BilibiliUid: "3546643173477234",
 
     // 默认 /home.md 
     // null 则不显示
@@ -36,18 +36,18 @@ export default {
     // 网页信息
     SiteHead: {
         // 站点标题
-        Title: "❖星港◎Star☆ 的主页",
+        Title: "异飨客 的主页",
 
         // 站点图标
-        Favicon: "https://bu.dusays.com/2023/09/27/6513053d49e3e.webp",
+        Favicon: "https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256",
 
         // 站点关键词 多个使用 “,” 分割
-        KeyWords: "❖星港◎Star☆,主页",
+        KeyWords: "❖塔罗会,主页",
 
         // 站点介绍
-        Desc: "👋 Hi! 这里是 ❖星港◎Star☆ 的主页",
+        Desc: "👋 Hi! 这里是 异飨客 的主页",
     },
 
-    SiteBackground: "url(https://bu.dusays.com/2025/04/11/67f9334b1a605.webp) center/cover",
+    SiteBackground: "url(https://img.314926.xyz/h) center/cover",
 
 }
