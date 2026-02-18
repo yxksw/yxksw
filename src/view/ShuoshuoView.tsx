@@ -355,7 +355,7 @@ export default function ShuoshuoView() {
   const [hasMore, setHasMore] = useState(true);
   const [fancyboxLoaded, setFancyboxLoaded] = useState(false);
   
-  const API_URL = 'https://api-tg.381359.xyz/';
+  const API_URL = 'https://tg-api.050815.xyz/';
   
   // 加载 Fancybox
   useEffect(() => {

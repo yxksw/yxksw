@@ -14,10 +14,10 @@ export default {
     GithubUsername: "yxksw",
 
     // 博客RSS订阅
-    BlogRSS: "https://cofe.381359.xyz/atom.xml",
+    BlogRSS: "https://cofe.050815.xyz/atom.xml",
 
     // 博客链接
-    BlogUrl: "https://cofe.381359.xyz",
+    BlogUrl: "https://cofe.050815.xyz",
 
     // 油管链接
     YoutubeUrl: "",
