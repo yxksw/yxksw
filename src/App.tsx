@@ -8,6 +8,7 @@ import HomeView from "./view/HomeView";
 import FriendsView from "./view/FriendsView";
 import FCircleView from "./view/FCircleView";
 import ShuoshuoView from "./view/ShuoshuoView";
+import SponsorView from "./view/SponsorView";
 import { useEffect } from "react";
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/friends" element={<FriendsView />}></Route>
           <Route path="/fcircle" element={<FCircleView />}></Route>
           <Route path="/shuoshuo" element={<ShuoshuoView />}></Route>
+          <Route path="/sponsor" element={<SponsorView />}></Route>
         </Routes>
       </div>
       <Nav />

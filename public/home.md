@@ -6,7 +6,7 @@
 
 <div align="center">
   <img style="display: inline-block; margin-right: 10px;" src="https://komarev.com/ghpvc/?username=yxksw&style=flat&label=View&color=000000" alt="View">
-  <img style="display: inline-block;" src="https://shields.jannchie.com/endpoint?style=social&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D36274" alt="Wakatime">
+  <img style="display: inline-block;" src="https://wakatime.com/badge/user/edd0e3ec-e485-4e20-b9ce-b6acd2445aa6.svg" alt="Wakatime">
 </div>
 
 > 本主页来源于[**星港**](https://github.com/Stars-harbor/Home)，在此基础上进行了些许修改，感谢大佬的开源~
@@ -36,7 +36,8 @@
 <div align="center">
   <a href="/friends"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8F%8B%E9%93%BE-ff69b4?style=flat&color=black&logo=link&logoColor=white" alt="友链"></a>
   <a href="/fcircle"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E6%9C%8B%E5%8F%8B%E5%9C%88-00bfff?style=flat&color=black&logo=users&logoColor=white" alt="朋友圈"></a>
-  <a href="/shuoshuo"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
+  <a href="/shuoshuo"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
+  <a href="/sponsor"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E8%B5%9E%E5%8A%A9-ea4aaa?style=flat&color=black&logo=heart&logoColor=white" alt="赞助"></a>
 </div>
 
 ### 联系我

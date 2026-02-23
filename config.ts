@@ -10,6 +10,8 @@ export default {
     // 介绍
     Desc: "👋 Hi! 欢迎来到 异飨客 的主页",
 
+    jieshao: "每一段旅行，都有终点。",
+
     // Github 用户名
     GithubUsername: "yxksw",
 
@@ -18,6 +20,8 @@ export default {
 
     // 博客链接
     BlogUrl: "https://cofe.050815.xyz",
+
+    homeurl: "https://home.050815.xyz",
 
     // 油管链接
     YoutubeUrl: "",
