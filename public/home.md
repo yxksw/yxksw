@@ -37,7 +37,8 @@
   <a href="/friends"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8F%8B%E9%93%BE-ff69b4?style=flat&color=black&logo=link&logoColor=white" alt="友链"></a>
   <a href="/fcircle"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E6%9C%8B%E5%8F%8B%E5%9C%88-00bfff?style=flat&color=black&logo=users&logoColor=white" alt="朋友圈"></a>
   <a href="/shuoshuo"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
-  <a href="/sponsor"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E8%B5%9E%E5%8A%A9-ea4aaa?style=flat&color=black&logo=heart&logoColor=white" alt="赞助"></a>
+  <a href="/sponsor"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E8%B5%9E%E5%8A%A9-ea4aaa?style=flat&color=black&logo=heart&logoColor=white" alt="赞助"></a>
+  <a href="/equipment"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E8%A3%85%E5%A4%87-6366f1?style=flat&color=black&logo=device-laptop&logoColor=white" alt="装备"></a>
 </div>
 
 ### 联系我
@@ -70,5 +71,5 @@
 [![Yxksw's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=yxksw&theme=github-light&radius=16&height=300&border_color=E0E0E0)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 <div align="right">
-  <img src=".github/.assets/svg/signature.svg" width="150" alt="signature">
+  <img src="https://cdn.jsdmirror.com/gh/yxksw/yxksw@main/.github/.assets/svg/signature.svg" width="150" alt="signature">
 </div>

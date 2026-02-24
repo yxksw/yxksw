@@ -1,5 +1,5 @@
 import { Route, Routes, Link, useLocation, Outlet } from "react-router-dom";
-import { Home, Github, Book, Film, Link2 } from "lucide-react";
+import { Home, Github, Book, Film, Link2, Laptop } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import BangumiView from "./view/BangumiView";
 import BlogView from "./view/BlogView";
@@ -9,6 +9,8 @@ import FriendsView from "./view/FriendsView";
 import FCircleView from "./view/FCircleView";
 import ShuoshuoView from "./view/ShuoshuoView";
 import SponsorView from "./view/SponsorView";
+import EquipmentView from "./view/EquipmentView";
+import MusicCapsule from "./components/MusicCapsule";
 import { useEffect } from "react";
 
 export default function App() {
@@ -37,9 +39,11 @@ export default function App() {
           <Route path="/fcircle" element={<FCircleView />}></Route>
           <Route path="/shuoshuo" element={<ShuoshuoView />}></Route>
           <Route path="/sponsor" element={<SponsorView />}></Route>
+          <Route path="/equipment" element={<EquipmentView />}></Route>
         </Routes>
       </div>
       <Nav />
+      <MusicCapsule />
     </>
   )
 }
