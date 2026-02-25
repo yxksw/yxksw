@@ -28,14 +28,14 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ name, url, description, avatar }) =
     };
 
     const InfoRow = ({ label, value, fieldId }: { label: string; value: string; fieldId: string }) => (
-        <div className="group flex items-center hover:bg-slate-100 rounded px-2 py-1 -mx-2 transition-colors">
-            <span className="text-slate-500 w-16 text-sm">{label}</span>
-            <span className="text-slate-900 font-medium text-sm flex-1 truncate">{value}</span>
+        <div className="site-info-row group flex items-center rounded px-2 py-1 -mx-2 transition-colors">
+            <span className="site-info-label w-16 text-sm">{label}</span>
+            <span className="site-info-value font-medium text-sm flex-1 truncate">{value}</span>
             <button
                 onClick={() => handleCopy(value, fieldId)}
-                className={`ml-2 p-1 rounded transition-all ${copiedField === fieldId
-                        ? 'bg-emerald-50 text-emerald-600 opacity-100'
-                        : 'text-slate-400 hover:text-slate-600 opacity-0 group-hover:opacity-100'
+                className={`site-info-copy ml-2 p-1 rounded transition-all ${copiedField === fieldId
+                        ? 'copied'
+                        : ''
                     }`}
                 title="复制"
             >
@@ -45,29 +45,76 @@ const SiteInfo: React.FC<SiteInfoProps> = ({ name, url, description, avatar }) =
     );
 
     return (
-        <div className="rounded-2xl bg-slate-50 border border-slate-100 p-6">
-            <div className="flex items-center gap-2 mb-4">
-                <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <h3 className="text-lg font-bold text-slate-900">本站信息</h3>
-                <button
-                    onClick={handleCopyJSON}
-                    className={`ml-auto text-xs px-2 py-1 rounded transition-colors ${copiedField === 'json'
-                            ? 'bg-emerald-50 text-emerald-600'
-                            : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
-                        }`}
-                >
-                    {copiedField === 'json' ? '已复制' : 'JSON'}
-                </button>
+        <>
+            <div className="site-info-card rounded-2xl border p-6">
+                <div className="flex items-center gap-2 mb-4">
+                    <svg className="w-5 h-5" style={{ color: 'var(--text-muted)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 className="text-lg font-bold">本站信息</h3>
+                    <button
+                        onClick={handleCopyJSON}
+                        className={`site-info-json ml-auto text-xs px-2 py-1 rounded transition-colors ${copiedField === 'json'
+                                ? 'copied'
+                                : ''
+                            }`}
+                    >
+                        {copiedField === 'json' ? '已复制' : 'JSON'}
+                    </button>
+                </div>
+                <div className="space-y-1">
+                    <InfoRow label="名称" value={name} fieldId="name" />
+                    <InfoRow label="地址" value={url} fieldId="url" />
+                    <InfoRow label="描述" value={description} fieldId="description" />
+                    <InfoRow label="头像" value={avatar} fieldId="avatar" />
+                </div>
             </div>
-            <div className="space-y-1">
-                <InfoRow label="名称" value={name} fieldId="name" />
-                <InfoRow label="地址" value={url} fieldId="url" />
-                <InfoRow label="描述" value={description} fieldId="description" />
-                <InfoRow label="头像" value={avatar} fieldId="avatar" />
-            </div>
-        </div>
+            <style>{`
+                .site-info-card {
+                    background: var(--bg-card);
+                    border-color: var(--border-color);
+                }
+                .site-info-card h3 {
+                    color: var(--text-primary);
+                }
+                .site-info-row:hover {
+                    background: var(--border-color);
+                }
+                .site-info-label {
+                    color: var(--text-muted);
+                }
+                .site-info-value {
+                    color: var(--text-primary);
+                }
+                .site-info-copy {
+                    color: var(--text-muted);
+                    opacity: 0;
+                }
+                .site-info-row:hover .site-info-copy {
+                    opacity: 1;
+                }
+                .site-info-copy:hover {
+                    color: var(--text-primary);
+                }
+                .site-info-copy.copied {
+                    background: rgba(16, 185, 129, 0.1);
+                    color: #10b981;
+                    opacity: 1;
+                }
+                .site-info-json {
+                    background: var(--border-color);
+                    color: var(--text-secondary);
+                }
+                .site-info-json:hover {
+                    background: var(--accent-color);
+                    color: white;
+                }
+                .site-info-json.copied {
+                    background: rgba(16, 185, 129, 0.1);
+                    color: #10b981;
+                }
+            `}</style>
+        </>
     );
 };
 

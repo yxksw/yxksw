@@ -35,10 +35,22 @@ function PageHeader({ background, title, desc }: { background: string; title: st
           alt="cover"
         />
       </div>
-      <div className="header-wrapper mt-3 px-5 py-4 rounded-2xl bg-white border border-slate-200">
-        <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
-        <span className="text-slate-600 mt-1 block">{desc}</span>
+      <div className="header-wrapper mt-3 px-5 py-4 rounded-2xl border">
+        <h3 className="header-title text-2xl font-bold">{title}</h3>
+        <span className="header-desc mt-1 block">{desc}</span>
       </div>
+      <style>{`
+        .header-wrapper {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .header-title {
+          color: var(--text-primary);
+        }
+        .header-desc {
+          color: var(--text-secondary);
+        }
+      `}</style>
     </div>
   );
 }
@@ -218,14 +230,14 @@ export default function FCircleView() {
                 onClick={(e) => { e.preventDefault(); openRandomArticle(); }}
                 className="article-item flex-1 min-w-0"
               >
-                <div className="article-container gradient-card flex items-center gap-2 h-10 px-3 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-slate-300 transition-all">
-                  <div className="article-author text-slate-500 text-sm flex-shrink-0">{randomArticle.author}</div>
-                  <div className="article-title text-slate-700 text-sm flex-1 truncate">{randomArticle.title}</div>
-                  <div className="article-date text-slate-400 text-xs flex-shrink-0">{randomArticle.created}</div>
+                <div className="article-container gradient-card flex items-center gap-2 h-10 px-3 rounded-lg border cursor-pointer transition-all">
+                  <div className="article-author text-sm flex-shrink-0">{randomArticle.author}</div>
+                  <div className="article-title text-sm flex-1 truncate">{randomArticle.title}</div>
+                  <div className="article-date text-xs flex-shrink-0">{randomArticle.created}</div>
                 </div>
               </a>
               <button 
-                className="refresh-btn gradient-card flex items-center justify-center w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all flex-shrink-0"
+                className="refresh-btn gradient-card flex items-center justify-center w-10 h-10 rounded-lg border transition-all flex-shrink-0"
                 onClick={displayRandomArticle}
               >
                 <RefreshCw size={18} />
@@ -234,22 +246,22 @@ export default function FCircleView() {
           )}
 
           {/* 统计信息 */}
-          <div className="stats-bar flex gap-4 mb-6 px-4 py-3 bg-white rounded-xl border border-slate-200">
+          <div className="stats-bar flex gap-4 mb-6 px-4 py-3 rounded-xl border">
             <div className="stat-item flex-1 text-center">
-              <div className="stat-value text-xl font-bold text-slate-800">{stats.friends_num}</div>
-              <div className="stat-label text-xs text-slate-500">友链数</div>
+              <div className="stat-value text-xl font-bold">{stats.friends_num}</div>
+              <div className="stat-label text-xs">友链数</div>
             </div>
             <div className="stat-item flex-1 text-center">
-              <div className="stat-value text-xl font-bold text-slate-800">{stats.active_num}</div>
-              <div className="stat-label text-xs text-slate-500">活跃数</div>
+              <div className="stat-value text-xl font-bold">{stats.active_num}</div>
+              <div className="stat-label text-xs">活跃数</div>
             </div>
             <div className="stat-item flex-1 text-center">
-              <div className="stat-value text-xl font-bold text-slate-800">{stats.article_num}</div>
-              <div className="stat-label text-xs text-slate-500">文章数</div>
+              <div className="stat-value text-xl font-bold">{stats.article_num}</div>
+              <div className="stat-label text-xs">文章数</div>
             </div>
             <div className="stat-item flex-1 text-center hidden sm:block">
-              <div className="stat-value text-xs text-slate-600 mt-2">{stats.last_updated_time}</div>
-              <div className="stat-label text-xs text-slate-500">更新时间</div>
+              <div className="stat-value text-xs mt-2">{stats.last_updated_time}</div>
+              <div className="stat-label text-xs">更新时间</div>
             </div>
           </div>
 
@@ -258,7 +270,7 @@ export default function FCircleView() {
             {displayedArticles.map((article, index) => (
               <div key={index} className="article-item flex items-center gap-3 w-full">
                 <div 
-                  className="article-image w-8 h-8 rounded-full overflow-hidden flex-shrink-0 cursor-pointer border border-slate-200"
+                  className="article-image w-8 h-8 rounded-full overflow-hidden flex-shrink-0 cursor-pointer border"
                   onClick={() => showAuthorArticles(article.author, article.avatar, article.link)}
                 >
                   <img 
@@ -268,15 +280,15 @@ export default function FCircleView() {
                     alt={article.author}
                   />
                 </div>
-                <div className="article-container gradient-card flex items-center gap-2 h-10 px-3 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-slate-300 transition-all flex-1 min-w-0">
-                  <div className="article-author text-slate-500 text-sm flex-shrink-0">{article.author}</div>
+                <div className="article-container gradient-card flex items-center gap-2 h-10 px-3 rounded-lg border cursor-pointer transition-all flex-1 min-w-0">
+                  <div className="article-author text-sm flex-shrink-0">{article.author}</div>
                   <div 
-                    className="article-title text-slate-700 text-sm flex-1 truncate hover:text-slate-900 transition-colors"
+                    className="article-title text-sm flex-1 truncate transition-colors"
                     onClick={() => openArticle(article.link)}
                   >
                     {article.title}
                   </div>
-                  <div className="article-date text-slate-400 text-xs font-mono flex-shrink-0">{formatDate(article.created)}</div>
+                  <div className="article-date text-xs font-mono flex-shrink-0">{formatDate(article.created)}</div>
                 </div>
               </div>
             ))}
@@ -286,7 +298,7 @@ export default function FCircleView() {
           <div className="load-more-container text-center my-6">
             {hasMoreArticles && (
               <button 
-                className="load-more gradient-card inline-block w-48 h-11 px-4 py-3 rounded-lg bg-white border border-slate-200 text-sm text-slate-700 hover:text-slate-900 hover:border-slate-300 hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="load-more gradient-card inline-block w-48 h-11 px-4 py-3 rounded-lg border text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={loadMoreArticles}
                 disabled={isLoading}
               >
@@ -294,7 +306,7 @@ export default function FCircleView() {
               </button>
             )}
             {!hasMoreArticles && displayedArticles.length > 0 && (
-              <div className="text-slate-400 text-sm">已经到底啦~</div>
+              <div className="text-sm">已经到底啦~</div>
             )}
           </div>
         </div>
@@ -306,8 +318,8 @@ export default function FCircleView() {
             className="modal fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xl"
             onClick={(e) => e.target === e.currentTarget && hideModal()}
           >
-            <div className="modal-content bg-white/90 rounded-xl shadow-xl border border-slate-200 max-w-md w-[90%] max-h-[80vh] overflow-y-auto p-5 relative">
-              <div className="modal-header flex items-center gap-4 border-b border-slate-200 pb-4 mb-5">
+            <div className="modal-content rounded-xl shadow-xl border max-w-md w-[90%] max-h-[80vh] overflow-y-auto p-5 relative">
+              <div className="modal-header flex items-center gap-4 border-b pb-4 mb-5">
                 <img 
                   src={avatarOrDefault(currentAuthorAvatar)} 
                   onError={handleAvatarError}
@@ -318,7 +330,7 @@ export default function FCircleView() {
                   href={authorOrigin} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-slate-700 font-medium hover:text-slate-900 hover:bg-slate-100 px-2 py-1 rounded transition-all"
+                  className="modal-author font-medium px-2 py-1 rounded transition-all"
                 >
                   {currentAuthor}
                 </a>
@@ -328,17 +340,17 @@ export default function FCircleView() {
                 {authorArticles.map((article, index) => (
                   <div 
                     key={index} 
-                    className="modal-article py-3 px-4 border-b border-slate-100 last:border-0"
+                    className="modal-article py-3 px-4 border-b last:border-0"
                   >
                     <a 
-                      className="modal-article-title text-slate-700 hover:text-slate-900 transition-colors block mb-1"
+                      className="modal-article-title transition-colors block mb-1"
                       href={article.link} 
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {article.title}
                     </a>
-                    <div className="modal-article-date text-slate-400 text-sm font-mono">📅 {formatDate(article.created)}</div>
+                    <div className="modal-article-date text-sm font-mono">📅 {formatDate(article.created)}</div>
                   </div>
                 ))}
               </div>
@@ -353,6 +365,90 @@ export default function FCircleView() {
           </div>
         )}
       </div>
+      
+      <style>{`
+        .random-container-title {
+          color: var(--text-primary);
+        }
+        .gradient-card {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .gradient-card:hover {
+          border-color: var(--accent-color);
+        }
+        .article-author {
+          color: var(--text-muted);
+        }
+        .article-title {
+          color: var(--text-secondary);
+        }
+        .article-title:hover {
+          color: var(--text-primary);
+        }
+        .article-date {
+          color: var(--text-muted);
+        }
+        .refresh-btn {
+          color: var(--text-muted);
+        }
+        .refresh-btn:hover {
+          color: var(--text-primary);
+          border-color: var(--accent-color);
+        }
+        .stats-bar {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .stat-value {
+          color: var(--text-primary);
+        }
+        .stat-label {
+          color: var(--text-muted);
+        }
+        .article-image {
+          border-color: var(--border-color);
+        }
+        .load-more {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+          color: var(--text-secondary);
+        }
+        .load-more:hover {
+          border-color: var(--accent-color);
+          color: var(--text-primary);
+          box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        .load-more-container > div {
+          color: var(--text-muted);
+        }
+        .modal-content {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .modal-header {
+          border-color: var(--border-color);
+        }
+        .modal-author {
+          color: var(--text-secondary);
+        }
+        .modal-author:hover {
+          color: var(--text-primary);
+          background: var(--border-color);
+        }
+        .modal-article {
+          border-color: var(--border-color);
+        }
+        .modal-article-title {
+          color: var(--text-secondary);
+        }
+        .modal-article-title:hover {
+          color: var(--text-primary);
+        }
+        .modal-article-date {
+          color: var(--text-muted);
+        }
+      `}</style>
     </Animation>
   );
 }

@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: rgba(255, 255, 255, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --accent-color: #667eea;
+  --accent-hover: #764ba2;
+}
+
+:root.dark,
+html.dark {
+  --bg-primary: #0f0f14;
+  --bg-secondary: rgba(30, 30, 40, 0.9);
+  --bg-card: rgba(25, 25, 35, 0.85);
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888888;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --accent-color: #818cf8;
+  --accent-hover: #a78bfa;
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark body {
+  background-color: var(--bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

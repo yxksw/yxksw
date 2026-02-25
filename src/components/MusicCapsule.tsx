@@ -138,17 +138,17 @@ export default function MusicCapsule() {
 
       {/* 音乐胶囊 */}
       <div
-        className={`fixed bottom-28 sm:bottom-24 right-2 sm:right-5 z-[100] transition-all duration-300 max-w-[calc(100vw-1rem)] ${
-          isExpanded ? 'w-80' : 'w-auto'
+        className={`fixed bottom-28 sm:bottom-24 right-2 sm:right-5 z-[1001] transition-all duration-300 ${
+          isExpanded ? '' : 'max-w-[calc(100vw-1rem)]'
         }`}
       >
         {/* 收起状态 - 胶囊按钮 */}
         {!isExpanded && (
           <button
             onClick={() => setIsExpanded(true)}
-            className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            className="music-capsule-btn flex items-center gap-2 backdrop-blur-sm border rounded-full px-4 py-2 shadow-lg transition-all hover:scale-105"
           >
-            <div className="relative w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+            <div className="music-cover relative w-8 h-8 rounded-full overflow-hidden">
               {currentSong?.cover ? (
                 <img
                   src={currentSong.cover}
@@ -156,22 +156,22 @@ export default function MusicCapsule() {
                   className={`w-full h-full object-cover ${isPlaying ? 'animate-spin-slow' : ''}`}
                 />
               ) : (
-                <Music className="w-5 h-5 m-1.5 text-slate-400" />
+                <Music className="w-5 h-5 m-1.5" />
               )}
             </div>
             <div className="text-left">
-              <p className="text-sm font-medium text-slate-800 truncate max-w-[120px]">
+              <p className="music-name text-sm font-medium truncate max-w-[120px]">
                 {currentSong?.name || '未播放'}
               </p>
-              <p className="text-xs text-slate-500 truncate max-w-[120px]">
+              <p className="music-artist text-xs truncate max-w-[120px]">
                 {currentSong?.artist || '未知艺术家'}
               </p>
             </div>
             {isPlaying && (
               <div className="flex gap-0.5">
-                <span className="w-1 h-3 bg-blue-500 rounded-full animate-music-bar-1" />
-                <span className="w-1 h-4 bg-blue-500 rounded-full animate-music-bar-2" />
-                <span className="w-1 h-2 bg-blue-500 rounded-full animate-music-bar-3" />
+                <span className="w-1 h-3 rounded-full animate-music-bar-1" />
+                <span className="w-1 h-4 rounded-full animate-music-bar-2" />
+                <span className="w-1 h-2 rounded-full animate-music-bar-3" />
               </div>
             )}
           </button>
@@ -179,16 +179,16 @@ export default function MusicCapsule() {
 
         {/* 展开状态 - 播放器面板 */}
         {isExpanded && (
-          <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl overflow-hidden w-[calc(100vw-1rem)] sm:w-80 max-h-[calc(100vh-8rem)] flex flex-col">
+          <div className="music-player-panel backdrop-blur-md border rounded-2xl shadow-xl overflow-hidden w-80 max-w-[calc(100vw-1rem)] max-h-[calc(100vh-8rem)] flex flex-col">
             {/* 头部 */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-100">
+            <div className="music-header flex items-center justify-between p-4 border-b">
               <div className="flex items-center gap-2">
-                <Music className="w-5 h-5 text-blue-500" />
-                <span className="font-medium text-slate-800">音乐胶囊</span>
+                <Music className="w-5 h-5" style={{ color: 'var(--accent-color)' }} />
+                <span className="font-medium">音乐胶囊</span>
               </div>
               <button
                 onClick={() => setIsExpanded(false)}
-                className="text-slate-400 hover:text-slate-600 transition-colors"
+                className="music-close-btn transition-colors"
               >
                 ✕
               </button>
@@ -196,7 +196,7 @@ export default function MusicCapsule() {
 
             {/* 歌曲信息 */}
             <div className="p-4 text-center shrink-0">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-xl overflow-hidden bg-slate-100 mb-3 shadow-md">
+              <div className="music-cover-large w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-xl overflow-hidden mb-3 shadow-md">
                 {currentSong?.cover ? (
                   <img
                     src={currentSong.cover}
@@ -204,11 +204,11 @@ export default function MusicCapsule() {
                     className={`w-full h-full object-cover ${isPlaying ? 'animate-spin-slow' : ''}`}
                   />
                 ) : (
-                  <Music className="w-12 h-12 sm:w-16 sm:h-16 m-6 sm:m-8 text-slate-300" />
+                  <Music className="w-12 h-12 sm:w-16 sm:h-16 m-6 sm:m-8" style={{ color: 'var(--text-muted)' }} />
                 )}
               </div>
-              <h3 className="font-bold text-slate-800 truncate text-base sm:text-lg">{currentSong?.name}</h3>
-              <p className="text-sm text-slate-500 truncate">{currentSong?.artist}</p>
+              <h3 className="music-song-name font-bold truncate text-base sm:text-lg">{currentSong?.name}</h3>
+              <p className="music-song-artist text-sm truncate">{currentSong?.artist}</p>
             </div>
 
             {/* 可滚动内容区域 */}
@@ -222,9 +222,9 @@ export default function MusicCapsule() {
                 max={duration || 100}
                 value={progress}
                 onChange={handleSeek}
-                className="w-full h-1 bg-slate-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:rounded-full"
+                className="music-progress w-full h-1 rounded-full appearance-none cursor-pointer"
               />
-              <div className="flex justify-between text-xs text-slate-400 mt-1">
+              <div className="music-time flex justify-between text-xs mt-1">
                 <span>{formatTime(progress)}</span>
                 <span>{formatTime(duration)}</span>
               </div>
@@ -234,13 +234,13 @@ export default function MusicCapsule() {
             <div className="flex items-center justify-center gap-4 p-4">
               <button
                 onClick={prevSong}
-                className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+                className="music-control-btn p-2 rounded-full transition-colors"
               >
-                <SkipBack className="w-5 h-5 text-slate-600" />
+                <SkipBack className="w-5 h-5" />
               </button>
               <button
                 onClick={togglePlay}
-                className="p-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white transition-colors shadow-lg hover:shadow-xl"
+                className="music-play-btn p-3 rounded-full text-white transition-colors shadow-lg hover:shadow-xl"
               >
                 {isPlaying ? (
                   <Pause className="w-6 h-6" />
@@ -250,15 +250,15 @@ export default function MusicCapsule() {
               </button>
               <button
                 onClick={nextSong}
-                className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+                className="music-control-btn p-2 rounded-full transition-colors"
               >
-                <SkipForward className="w-5 h-5 text-slate-600" />
+                <SkipForward className="w-5 h-5" />
               </button>
             </div>
 
             {/* 音量控制 */}
             <div className="flex items-center gap-2 px-4 pb-4">
-              <Volume2 className="w-4 h-4 text-slate-400" />
+              <Volume2 className="w-4 h-4" style={{ color: 'var(--text-muted)' }} />
               <input
                 type="range"
                 min={0}
@@ -272,12 +272,12 @@ export default function MusicCapsule() {
                     audioRef.current.volume = newVolume;
                   }
                 }}
-                className="flex-1 h-1 bg-slate-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:bg-slate-400 [&::-webkit-slider-thumb]:rounded-full"
+                className="music-volume flex-1 h-1 rounded-full appearance-none cursor-pointer"
               />
             </div>
 
             {/* 播放列表 */}
-            <div className="overflow-y-auto border-t border-slate-100" style={{ maxHeight: '40vh' }}>
+            <div className="music-playlist overflow-y-auto border-t" style={{ maxHeight: '40vh' }}>
               {playlist.map((song, index) => (
                 <button
                   key={index}
@@ -286,22 +286,22 @@ export default function MusicCapsule() {
                     setCurrentSong(song);
                     setIsPlaying(true);
                   }}
-                  className={`w-full flex items-center gap-3 p-3 hover:bg-slate-50 transition-colors text-left ${
-                    currentIndex === index ? 'bg-blue-50' : ''
+                  className={`music-playlist-item w-full flex items-center gap-3 p-3 transition-colors text-left ${
+                    currentIndex === index ? 'active' : ''
                   }`}
                 >
-                  <span className="text-xs text-slate-400 w-5">{index + 1}</span>
+                  <span className="music-playlist-index text-xs w-5">{index + 1}</span>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-sm truncate ${currentIndex === index ? 'text-blue-600 font-medium' : 'text-slate-700'}`}>
+                    <p className="music-playlist-name text-sm truncate">
                       {song.name}
                     </p>
-                    <p className="text-xs text-slate-400 truncate">{song.artist}</p>
+                    <p className="music-playlist-artist text-xs truncate">{song.artist}</p>
                   </div>
                   {currentIndex === index && isPlaying && (
                     <div className="flex gap-0.5">
-                      <span className="w-0.5 h-3 bg-blue-500 rounded-full animate-music-bar-1" />
-                      <span className="w-0.5 h-4 bg-blue-500 rounded-full animate-music-bar-2" />
-                      <span className="w-0.5 h-2 bg-blue-500 rounded-full animate-music-bar-3" />
+                      <span className="w-0.5 h-3 rounded-full animate-music-bar-1" />
+                      <span className="w-0.5 h-4 rounded-full animate-music-bar-2" />
+                      <span className="w-0.5 h-2 rounded-full animate-music-bar-3" />
                     </div>
                   )}
                 </button>
@@ -335,12 +335,129 @@ export default function MusicCapsule() {
         }
         .animate-music-bar-1 {
           animation: music-bar-1 0.8s ease-in-out infinite;
+          background: var(--accent-color);
         }
         .animate-music-bar-2 {
           animation: music-bar-2 0.6s ease-in-out infinite;
+          background: var(--accent-color);
         }
         .animate-music-bar-3 {
           animation: music-bar-3 0.7s ease-in-out infinite;
+          background: var(--accent-color);
+        }
+
+        /* 胶囊按钮 */
+        .music-capsule-btn {
+          background: var(--bg-secondary);
+          border-color: var(--border-color);
+        }
+        .music-capsule-btn:hover {
+          box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        .music-cover {
+          background: var(--border-color);
+        }
+        .music-cover svg {
+          color: var(--text-muted);
+        }
+        .music-name {
+          color: var(--text-primary);
+        }
+        .music-artist {
+          color: var(--text-muted);
+        }
+
+        /* 播放器面板 */
+        .music-player-panel {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .music-header {
+          border-color: var(--border-color);
+          color: var(--text-primary);
+        }
+        .music-close-btn {
+          color: var(--text-muted);
+        }
+        .music-close-btn:hover {
+          color: var(--text-primary);
+        }
+        .music-cover-large {
+          background: var(--border-color);
+        }
+        .music-song-name {
+          color: var(--text-primary);
+        }
+        .music-song-artist {
+          color: var(--text-muted);
+        }
+
+        /* 进度条 */
+        .music-progress {
+          background: var(--border-color);
+        }
+        .music-progress::-webkit-slider-thumb {
+          appearance: none;
+          width: 12px;
+          height: 12px;
+          background: var(--accent-color);
+          border-radius: 50%;
+        }
+        .music-time {
+          color: var(--text-muted);
+        }
+
+        /* 控制按钮 */
+        .music-control-btn {
+          color: var(--text-secondary);
+        }
+        .music-control-btn:hover {
+          background: var(--border-color);
+        }
+        .music-play-btn {
+          background: var(--accent-color);
+        }
+        .music-play-btn:hover {
+          opacity: 0.9;
+        }
+
+        /* 音量 */
+        .music-volume {
+          background: var(--border-color);
+        }
+        .music-volume::-webkit-slider-thumb {
+          appearance: none;
+          width: 10px;
+          height: 10px;
+          background: var(--text-muted);
+          border-radius: 50%;
+        }
+
+        /* 播放列表 */
+        .music-playlist {
+          border-color: var(--border-color);
+        }
+        .music-playlist-item {
+          color: var(--text-primary);
+        }
+        .music-playlist-item:hover {
+          background: var(--border-color);
+        }
+        .music-playlist-item.active {
+          background: rgba(102, 126, 234, 0.1);
+        }
+        .music-playlist-index {
+          color: var(--text-muted);
+        }
+        .music-playlist-name {
+          color: var(--text-primary);
+        }
+        .music-playlist-item.active .music-playlist-name {
+          color: var(--accent-color);
+          font-weight: 500;
+        }
+        .music-playlist-artist {
+          color: var(--text-muted);
         }
       `}</style>
     </>

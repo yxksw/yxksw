@@ -38,14 +38,15 @@
   <a href="/fcircle"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E6%9C%8B%E5%8F%8B%E5%9C%88-00bfff?style=flat&color=black&logo=users&logoColor=white" alt="朋友圈"></a>
   <a href="/shuoshuo"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
   <a href="/sponsor"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E8%B5%9E%E5%8A%A9-ea4aaa?style=flat&color=black&logo=heart&logoColor=white" alt="赞助"></a>
-  <a href="/equipment"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E8%A3%85%E5%A4%87-6366f1?style=flat&color=black&logo=device-laptop&logoColor=white" alt="装备"></a>
+  <a href="/equipment"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E8%A3%85%E5%A4%87-6366f1?style=flat&color=black&logo=device-laptop&logoColor=white" alt="装备"></a>
+  <a href="/about"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E5%85%B3%E4%BA%8E-10b981?style=flat&color=black&logo=user&logoColor=white" alt="关于"></a>
 </div>
 
 ### 联系我
 
 <div align="center">
   <a href="mailto:yxksw@foxmail.com"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/QQEmail%20%40-2CA5E0?style=flat&color=black&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACg0lEQVR4nO2YW08TQRiG94fgpeEvWhQ1xgjRaAqWQ7SlpSA9UBsoRIkY7YUJMQYVRcGWtgoUEHrcng+7r5lpd6Gi7pZuu5s4TzJXO4f36c580yzHMRgMBoPBMBgALgHwAeChPzwAP4D+dsInYTySAPoUBfh8PgCDks3nFxQFhm0u4c2HTRiN9a9h3LV7BEWBK2YrSJtZfoliuax3bpQrVbhXXtNMpCkKfApFcXPCSTsP29yIxY90C797eIx7di/NcmN8Gu+3wsoCZGAqm8OEZ4kOHBidwuraOgRR7FlwEQDZxldHp2gGi2sBJ+ksfaZKgCAIAg1uGrHRScbdAaSy3a+quUIRNv9zuqbJbEUguIZ6XZCfqxaQ2NmN487jOToh2Vob3yJdC/8l8h23JmfoWrcfPcF2bO9cn7YFCPliCY7FF/JB8qwEUa3VNAteq9fpL21qzk/eAF8o/rHvhQSkffn28xYGLXa6yAOnDwcnnd93P5NpjMz66ZzXHtoRfLcB8R/n7cICEkeJFMyzT+UFyWETO6jtgxYHnev+9DzixwnFMR0LEKq1xiuXtpQzsIpCSf2dUSpXMPfsVcuWrFSrqsZqIiCxGY61HLrQj33FMZG9AwxZXXJt/7i9086S2goQ0nwOk/PLrWVPOC17v5flgWZZHnMvIplpvyxrLkDDieK5cIlMtlXS27gYyb3yN0ndBCSi+4cYsrlO74xQlDbprwl5Rvp0AtdNAemAus4cUPmgL7V30HUTOFsir4855FKrFVyvBKQ7gzQt4Xop0A04JqAz3P8gwMO4ZNQIkI9IRsWnRqDfwB+2LisKNCX6AHjJtyS9U6ORwac6PIPBYDAYDK53/AKTcNBwHtWhrgAAAABJRU5ErkJggg==" alt="Email"></a>
-  <a href="https://t.me/zsxcoderchat_bot"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/Telegram%20%40-2CA5E0?style=flat&color=black&logo=telegram" alt="Telegram"></a>
+  <a href="https://t.me/yxksw_bot"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/Telegram%20%40-2CA5E0?style=flat&color=black&logo=telegram" alt="Telegram"></a>
   <a href="https://discord.com/invite/xEsQhD8QQv"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/Discord%20%40-5865F2?style=flat&color=black&logo=discord" alt="Discord"></a>
   <a href="https://space.bilibili.com/3546643173477234"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-Bilibili%20%E2%98%85-black?labelColor=black&logo=bilibili&logoColor=white&style=flat" alt="Bilibili"></a>
   <a href="https://mastodon.social/@yxksw"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-Mastodon%20%E2%98%85-black?labelColor=black&logo=mastodon&logoColor=white&style=flat" alt="Mastodon"></a>

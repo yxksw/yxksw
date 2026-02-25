@@ -87,21 +87,21 @@ export default function FriendsView() {
 
   return (
     <Animation id="friends">
-      <div className="animate-in fade-in slide-in-from-bottom-8 duration-500">
+      <div className="friends-page animate-in fade-in slide-in-from-bottom-8 duration-500">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Link2 className="w-8 h-8 text-slate-600" />
-            <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">友情链接</h1>
+            <Link2 className="w-8 h-8" style={{ color: 'var(--text-muted)' }} />
+            <h1 className="friends-title text-3xl sm:text-4xl font-bold">友情链接</h1>
           </div>
-          <p className="text-lg text-slate-600 italic">
+          <p className="friends-desc text-lg italic">
             探索更多优秀的内容创作者和技术伙伴。
           </p>
         </div>
 
         {/* 错误提示 */}
         {error && (
-          <div className="mb-6 p-4 rounded-xl border border-amber-200 bg-amber-50 text-amber-700">
+          <div className="friends-error mb-6 p-4 rounded-xl border">
             <div className="flex items-center gap-2">
               <span>⚠️</span>
               <span>{error}</span>
@@ -111,9 +111,9 @@ export default function FriendsView() {
 
         {/* 加载状态 */}
         {loading ? (
-          <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 text-slate-400 animate-spin" />
-            <span className="ml-2 text-slate-500">加载友链中...</span>
+          <div className="friends-loading flex items-center justify-center py-12">
+            <Loader2 className="w-8 h-8 animate-spin" style={{ color: 'var(--text-muted)' }} />
+            <span className="ml-2">加载友链中...</span>
           </div>
         ) : (
           <>
@@ -137,23 +137,23 @@ export default function FriendsView() {
         {/* Apply Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {/* 申请友链 */}
-          <div className="rounded-2xl bg-slate-50 border border-slate-100 p-6">
+          <div className="friends-apply-card rounded-2xl border p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Mail className="w-5 h-5 text-slate-600" />
-              <h3 className="text-lg font-bold text-slate-900">申请友链</h3>
+              <Mail className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
+              <h3 className="text-lg font-bold">申请友链</h3>
             </div>
-            <p className="text-sm text-slate-600 mb-4">
+            <p className="friends-apply-text text-sm mb-4">
               欢迎技术与生活类博客交换友链
             </p>
-            <p className="text-sm text-slate-600 mb-4">
-              在Github仓库添加 <a href="https://github.com/yxksw/Friends/issues/new?template=friend-link-request.yml" className="text-slate-800 hover:underline font-medium">议题</a>
+            <p className="friends-apply-text text-sm mb-4">
+              在Github仓库添加 <a href="https://github.com/yxksw/Friends/issues/new?template=friend-link-request.yml" className="friends-link hover:underline font-medium">议题</a>
             </p>
             {/* 提示信息框 */}
-            <div className="rounded-lg border-2 border-dashed border-slate-300 bg-slate-100 p-4 text-center">
-              <p className="text-sm text-slate-700 font-medium mb-1">
+            <div className="friends-tip rounded-lg border-2 border-dashed p-4 text-center">
+              <p className="text-sm font-medium mb-1">
                 博客名称、描述、地址、头像等信息
               </p>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
                 任意格式均可，包含基本信息即可
               </p>
             </div>
@@ -170,6 +170,41 @@ export default function FriendsView() {
           </ErrorBoundary>
         </div>
       </div>
+      
+      <style>{`
+        .friends-title {
+          color: var(--text-primary);
+        }
+        .friends-desc {
+          color: var(--text-secondary);
+        }
+        .friends-error {
+          background: rgba(245, 158, 11, 0.1);
+          border-color: rgba(245, 158, 11, 0.3);
+          color: #d97706;
+        }
+        .friends-loading {
+          color: var(--text-muted);
+        }
+        .friends-apply-card {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .friends-apply-card h3 {
+          color: var(--text-primary);
+        }
+        .friends-apply-text {
+          color: var(--text-secondary);
+        }
+        .friends-link {
+          color: var(--accent-color);
+        }
+        .friends-tip {
+          background: var(--border-color);
+          border-color: var(--text-muted);
+          color: var(--text-primary);
+        }
+      `}</style>
     </Animation>
   );
 }

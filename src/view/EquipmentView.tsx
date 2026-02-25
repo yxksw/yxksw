@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import Animation from "../components/Animation";
 import { Laptop, Package, ExternalLink, Calendar, Tag } from "lucide-react";
 
-// 装备数据接口
 interface EquipmentItem {
   name: string;
   image: string;
@@ -15,7 +14,6 @@ interface EquipmentItem {
   money: number;
 }
 
-// 装备数据
 const EQUIPMENT_DATA: EquipmentItem[] = [
   {
     name: "机械革命 极光PRO 2022",
@@ -109,7 +107,6 @@ const EQUIPMENT_DATA: EquipmentItem[] = [
   },
 ];
 
-// 分类配置
 const CATEGORIES = [
   { key: '硬件', label: '硬件', icon: Laptop, color: '#3b82f6' },
   { key: '外设', label: '外设', icon: Package, color: '#10b981' },
@@ -118,56 +115,53 @@ const CATEGORIES = [
 export default function EquipmentView() {
   const [activeCategory, setActiveCategory] = useState<string>('硬件');
 
-  // 过滤装备数据
   const filteredEquipment = useMemo(() => {
     return EQUIPMENT_DATA.filter(item => item.category === activeCategory);
   }, [activeCategory]);
 
-  // 计算分类数量
   const getCategoryCount = (category: string) => {
     return EQUIPMENT_DATA.filter(item => item.category === category).length;
   };
 
-  // 计算总金额
   const totalMoney = useMemo(() => {
     return EQUIPMENT_DATA.reduce((sum, item) => sum + item.money, 0);
   }, []);
 
   return (
     <Animation id="equipment">
-      <div className="animate-in fade-in slide-in-from-bottom-8 duration-500">
+      <div className="equipment-page animate-in fade-in slide-in-from-bottom-8 duration-500">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Laptop className="w-8 h-8 text-blue-500" />
-            <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">我的装备</h1>
+            <Laptop className="w-8 h-8" style={{ color: 'var(--accent-color)' }} />
+            <h1 className="equipment-title text-3xl sm:text-4xl font-bold">我的装备</h1>
           </div>
-          <p className="text-lg text-slate-600">
+          <p className="equipment-desc text-lg">
             记录我的生产力工具，分享使用体验
           </p>
         </div>
 
         {/* 统计信息 */}
-        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl border border-blue-100 p-6 mb-8 text-center">
+        <div className="equipment-stats rounded-2xl border p-6 mb-8 text-center">
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <p className="text-3xl font-bold text-blue-500">{EQUIPMENT_DATA.length}</p>
-              <p className="text-sm text-slate-600">装备总数</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{EQUIPMENT_DATA.length}</p>
+              <p className="equipment-stat-label text-sm">装备总数</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-blue-500">{CATEGORIES.length}</p>
-              <p className="text-sm text-slate-600">分类数量</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{CATEGORIES.length}</p>
+              <p className="equipment-stat-label text-sm">分类数量</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-blue-500">¥{(totalMoney / 10000).toFixed(1)}w</p>
-              <p className="text-sm text-slate-600">总价值</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>¥{(totalMoney / 10000).toFixed(1)}w</p>
+              <p className="equipment-stat-label text-sm">总价值</p>
             </div>
           </div>
         </div>
 
         {/* 分类标签 */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-slate-100 rounded-xl p-1.5">
+          <div className="equipment-tabs inline-flex rounded-xl p-1.5">
             {CATEGORIES.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.key;
@@ -175,10 +169,8 @@ export default function EquipmentView() {
                 <button
                   key={category.key}
                   onClick={() => setActiveCategory(category.key)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all ${
-                    isActive
-                      ? 'bg-white text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'
+                  className={`equipment-tab flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all ${
+                    isActive ? 'active' : ''
                   }`}
                   style={{
                     color: isActive ? category.color : undefined,
@@ -186,9 +178,7 @@ export default function EquipmentView() {
                 >
                   <Icon className="w-4 h-4" />
                   <span>{category.label}</span>
-                  <span className={`text-xs px-1.5 py-0.5 rounded-full ${
-                    isActive ? 'bg-slate-100' : 'bg-slate-200'
-                  }`}>
+                  <span className={`equipment-tab-count text-xs px-1.5 py-0.5 rounded-full`}>
                     {getCategoryCount(category.key)}
                   </span>
                 </button>
@@ -206,99 +196,183 @@ export default function EquipmentView() {
 
         {/* 空状态 */}
         {filteredEquipment.length === 0 && (
-          <div className="text-center py-12 text-slate-500">
-            <Package className="w-16 h-16 mx-auto mb-4 text-slate-300" />
+          <div className="equipment-empty text-center py-12">
+            <Package className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--text-muted)' }} />
             <p>该分类下暂无装备</p>
           </div>
         )}
       </div>
+      <style>{`
+        .equipment-title {
+          color: var(--text-primary);
+        }
+        .equipment-desc {
+          color: var(--text-secondary);
+        }
+        .equipment-stats {
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+          border-color: rgba(59, 130, 246, 0.2);
+        }
+        .equipment-stat-label {
+          color: var(--text-secondary);
+        }
+        .equipment-tabs {
+          background: var(--border-color);
+        }
+        .equipment-tab {
+          color: var(--text-muted);
+        }
+        .equipment-tab:hover {
+          color: var(--text-primary);
+        }
+        .equipment-tab.active {
+          background: var(--bg-card);
+          color: var(--text-primary);
+          box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        .equipment-tab-count {
+          background: var(--border-color);
+        }
+        .equipment-tab.active .equipment-tab-count {
+          background: var(--border-color);
+        }
+        .equipment-empty {
+          color: var(--text-muted);
+        }
+      `}</style>
     </Animation>
   );
 }
 
-// 装备卡片组件
 function EquipmentCard({ item }: { item: EquipmentItem }) {
   const categoryConfig = CATEGORIES.find(c => c.key === item.category);
   const categoryColor = categoryConfig?.color || '#3b82f6';
 
   return (
-    <div className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-      {/* 图片区域 */}
-      <div className="relative h-56 bg-slate-50 flex items-center justify-center overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
-        {/* 分类标签 */}
-        <div
-          className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold text-white"
-          style={{ backgroundColor: categoryColor }}
-        >
-          {item.category}
-        </div>
-      </div>
-
-      {/* 内容区域 */}
-      <div className="p-6">
-        {/* 标题 */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <h3 className="text-xl font-bold text-slate-900 line-clamp-1">
-            {item.name}
-          </h3>
-        </div>
-
-        {/* 描述 */}
-        <p className="text-slate-600 text-sm mb-4 line-clamp-2">
-          {item.desc}
-        </p>
-
-        {/* 规格参数 */}
-        <div className="grid grid-cols-2 gap-2 mb-4">
-          {Object.entries(item.info).slice(0, 4).map(([key, value]) => (
-            <div key={key} className="bg-slate-50 rounded-lg px-3 py-2">
-              <p className="text-xs text-slate-400 mb-0.5">{key}</p>
-              <p className="text-sm font-medium text-slate-700 truncate">{value}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* 标签 */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {item.tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-600"
-            >
-              <Tag className="w-3 h-3" />
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* 底部信息 */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-          <div className="flex items-center gap-4 text-sm text-slate-500">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4" />
-              {item.date}
-            </span>
-            <span className="font-semibold text-slate-900">
-              ¥{item.money.toLocaleString()}
-            </span>
-          </div>
-          <a
-            href={item.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium hover:bg-blue-500 hover:text-white transition-colors"
+    <>
+      <div className="equipment-card group rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        {/* 图片区域 */}
+        <div className="equipment-card-image relative h-56 flex items-center justify-center overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          {/* 分类标签 */}
+          <div
+            className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold text-white"
+            style={{ backgroundColor: categoryColor }}
           >
-            详情
-            <ExternalLink className="w-4 h-4" />
-          </a>
+            {item.category}
+          </div>
+        </div>
+
+        {/* 内容区域 */}
+        <div className="p-6">
+          {/* 标题 */}
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <h3 className="equipment-card-title text-xl font-bold line-clamp-1">
+              {item.name}
+            </h3>
+          </div>
+
+          {/* 描述 */}
+          <p className="equipment-card-desc text-sm mb-4 line-clamp-2">
+            {item.desc}
+          </p>
+
+          {/* 规格参数 */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {Object.entries(item.info).slice(0, 4).map(([key, value]) => (
+              <div key={key} className="equipment-card-info rounded-lg px-3 py-2">
+                <p className="equipment-card-info-label text-xs mb-0.5">{key}</p>
+                <p className="equipment-card-info-value text-sm font-medium truncate">{value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 标签 */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {item.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="equipment-card-tag inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium"
+              >
+                <Tag className="w-3 h-3" />
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* 底部信息 */}
+          <div className="equipment-card-footer flex items-center justify-between pt-4 border-t">
+            <div className="flex items-center gap-4 text-sm">
+              <span className="equipment-card-date flex items-center gap-1.5">
+                <Calendar className="w-4 h-4" />
+                {item.date}
+              </span>
+              <span className="equipment-card-price font-semibold">
+                ¥{item.money.toLocaleString()}
+              </span>
+            </div>
+            <a
+              href={item.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="equipment-card-link flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium transition-colors"
+            >
+              详情
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+      <style>{`
+        .equipment-card {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .equipment-card-image {
+          background: var(--border-color);
+        }
+        .equipment-card-title {
+          color: var(--text-primary);
+        }
+        .equipment-card-desc {
+          color: var(--text-secondary);
+        }
+        .equipment-card-info {
+          background: var(--border-color);
+        }
+        .equipment-card-info-label {
+          color: var(--text-muted);
+        }
+        .equipment-card-info-value {
+          color: var(--text-primary);
+        }
+        .equipment-card-tag {
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
+        }
+        .equipment-card-footer {
+          border-color: var(--border-color);
+        }
+        .equipment-card-date {
+          color: var(--text-muted);
+        }
+        .equipment-card-price {
+          color: var(--text-primary);
+        }
+        .equipment-card-link {
+          background: var(--border-color);
+          color: var(--text-secondary);
+        }
+        .equipment-card-link:hover {
+          background: var(--accent-color);
+          color: white;
+        }
+      `}</style>
+    </>
   );
 }

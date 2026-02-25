@@ -4,6 +4,8 @@ export default {
     // 名字
     Name: "塔罗会",
 
+    Aboutname: "异飨客",
+
     // 头像
     Avatar: "https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256",
 

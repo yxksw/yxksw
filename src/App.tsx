@@ -10,7 +10,11 @@ import FCircleView from "./view/FCircleView";
 import ShuoshuoView from "./view/ShuoshuoView";
 import SponsorView from "./view/SponsorView";
 import EquipmentView from "./view/EquipmentView";
+import AboutView from "./view/AboutView";
+import NotFoundView from "./view/NotFoundView";
 import MusicCapsule from "./components/MusicCapsule";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./context/ThemeContext";
 import { useEffect } from "react";
 
 export default function App() {
@@ -28,7 +32,7 @@ export default function App() {
   }, [location])
 
   return (
-    <>
+    <ThemeProvider>
       <div className={`p-5 m-auto pt-40 pb-40 ${isWidePage ? 'md:w-4/5 max-w-7xl' : 'md:w-3/5'}`}>
         <Routes>
           <Route path="/" element={<HomeView />}></Route>
@@ -40,11 +44,14 @@ export default function App() {
           <Route path="/shuoshuo" element={<ShuoshuoView />}></Route>
           <Route path="/sponsor" element={<SponsorView />}></Route>
           <Route path="/equipment" element={<EquipmentView />}></Route>
+          <Route path="/about" element={<AboutView />}></Route>
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </div>
       <Nav />
       <MusicCapsule />
-    </>
+      <ThemeToggle />
+    </ThemeProvider>
   )
 }
 
@@ -58,19 +65,36 @@ function Nav() {
   ]
   const location = useLocation()
   return (
-    <div className="fixed shadow-sm bottom-0 left-0 right-0 md:bottom-5 md:left-1/2 md:right-auto md:-translate-x-1/2 h-24 border md:rounded-3xl rounded-none bg-white bg-opacity-70 backdrop-blur-xl">
-      <ul className="flex justify-center items-center">
-        {links.map((link, index) => (
-          <li key={index}
-            className={
-              `h-20 w-20 m-2 rounded-2xl hover:bg-slate-200 transition-all ${location.pathname === link.to ? "bg-slate-200" : ""}`}>
-            <Link to={link.to} className=" h-full flex flex-col justify-center items-center transition-all">
-              <link.icon className={`transition-all m-1 ${location.pathname === link.to ? "" : " h-96"}`} />
-              <span className=" overflow-hidden">{link.text}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="nav-container fixed shadow-sm bottom-0 left-0 right-0 md:bottom-5 md:left-1/2 md:right-auto md:-translate-x-1/2 h-24 border md:rounded-3xl rounded-none backdrop-blur-xl">
+        <ul className="flex justify-center items-center">
+          {links.map((link, index) => (
+            <li key={index}
+              className={`nav-item h-20 w-20 m-2 rounded-2xl transition-all ${location.pathname === link.to ? "active" : ""}`}>
+              <Link to={link.to} className="h-full flex flex-col justify-center items-center transition-all">
+                <link.icon className={`transition-all m-1 ${location.pathname === link.to ? "" : " h-96"}`} />
+                <span className="overflow-hidden">{link.text}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <style>{`
+        .nav-container {
+          background: var(--bg-secondary);
+          border-color: var(--border-color);
+          z-index: 100;
+        }
+
+        .nav-item {
+          background: transparent;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+          background: var(--border-color);
+        }
+      `}</style>
+    </>
   )
 }

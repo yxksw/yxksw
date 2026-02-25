@@ -99,13 +99,13 @@ function GlobalEmojiPicker() {
       className="global-emoji-picker fixed z-[99999]"
       style={{ top: position.top, left: position.left }}
     >
-      <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-2">
+      <div className="emoji-picker-popup rounded-xl shadow-2xl border p-2">
         <div className="flex gap-1">
           {availableEmojis.map((emoji) => (
             <button
               key={emoji}
               onClick={() => handleSelect(emoji)}
-              className="w-10 h-10 flex items-center justify-center text-xl hover:bg-slate-100 rounded-lg transition-all"
+              className="w-10 h-10 flex items-center justify-center text-xl rounded-lg transition-all"
             >
               {emoji}
             </button>
@@ -117,9 +117,18 @@ function GlobalEmojiPicker() {
         style={{
           borderLeft: '8px solid transparent',
           borderRight: '8px solid transparent',
-          borderTop: '8px solid white',
+          borderTop: '8px solid var(--bg-card)',
         }}
       />
+      <style>{`
+        .emoji-picker-popup {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .emoji-picker-popup button:hover {
+          background: var(--border-color);
+        }
+      `}</style>
     </div>,
     document.body
   );
@@ -176,10 +185,10 @@ function EmojiReaction({
           <button
             key={idx}
             onClick={() => handleReact(reaction.emoji)}
-            className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs transition-all border flex-shrink-0 ${
+            className={`emoji-reaction flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs transition-all border flex-shrink-0 ${
               reaction.reacted 
-                ? 'bg-blue-50 text-blue-600 border-blue-300' 
-                : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                ? 'reacted' 
+                : ''
             }`}
           >
             <span>{reaction.emoji}</span>
@@ -189,7 +198,7 @@ function EmojiReaction({
         {hasMore && (
           <button
             onClick={() => setShowAllReactions(!showAllReactions)}
-            className="text-xs text-slate-500 hover:text-slate-700 flex-shrink-0 px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 transition-colors"
+            className="emoji-more text-xs flex-shrink-0 px-1 py-0.5 rounded transition-colors"
           >
             +{reactions.length - 3}
           </button>
@@ -199,7 +208,7 @@ function EmojiReaction({
       {showAllReactions && hasMore && (
         <div 
           ref={allReactionsRef}
-          className="absolute bottom-full right-0 mb-2 p-2 bg-white rounded-xl shadow-xl border border-slate-200 z-50"
+          className="emoji-popup absolute bottom-full right-0 mb-2 p-2 rounded-xl shadow-xl border z-50"
         >
           <div className="flex flex-wrap gap-1 max-w-[150px]">
             {hiddenReactions.map((reaction, idx) => (
@@ -209,10 +218,10 @@ function EmojiReaction({
                   handleReact(reaction.emoji);
                   setShowAllReactions(false);
                 }}
-                className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs transition-all border ${
+                className={`emoji-reaction flex items-center gap-1 px-2 py-1 rounded-full text-xs transition-all border ${
                   reaction.reacted 
-                    ? 'bg-blue-50 text-blue-600 border-blue-300' 
-                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    ? 'reacted' 
+                    : ''
                 }`}
               >
                 <span>{reaction.emoji}</span>
@@ -226,7 +235,7 @@ function EmojiReaction({
       <button
         ref={buttonRef}
         onClick={handleTriggerClick}
-        className="emoji-trigger-btn w-6 h-6 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-all border border-slate-200 flex-shrink-0"
+        className="emoji-trigger-btn w-6 h-6 flex items-center justify-center rounded-full transition-all border flex-shrink-0"
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10"/>
@@ -235,6 +244,47 @@ function EmojiReaction({
           <line x1="15" y1="9" x2="15.01" y2="9"/>
         </svg>
       </button>
+      
+      <style>{`
+        .emoji-reaction {
+          background: var(--border-color);
+          color: var(--text-secondary);
+          border-color: var(--border-color);
+        }
+        .emoji-reaction:hover {
+          background: var(--accent-color);
+          color: white;
+          border-color: var(--accent-color);
+        }
+        .emoji-reaction.reacted {
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
+          border-color: rgba(59, 130, 246, 0.3);
+        }
+        .emoji-more {
+          color: var(--text-muted);
+          background: var(--border-color);
+        }
+        .emoji-more:hover {
+          color: var(--text-primary);
+          background: var(--accent-color);
+          color: white;
+        }
+        .emoji-popup {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+        }
+        .emoji-trigger-btn {
+          background: var(--border-color);
+          color: var(--text-muted);
+          border-color: var(--border-color);
+        }
+        .emoji-trigger-btn:hover {
+          background: var(--accent-color);
+          color: white;
+          border-color: var(--accent-color);
+        }
+      `}</style>
     </div>
   );
 }
@@ -275,28 +325,28 @@ function ShuoshuoCard({
   
   return (
     <div className="break-inside-avoid mb-3">
-      <div className="bg-white rounded-xl border border-amber-100/50 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-amber-300 transition-all duration-300 p-5">
+      <div className="shuoshuo-card rounded-xl border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-5">
         {/* 头部信息 */}
-        <div className="flex items-center pb-3 mb-3 border-b border-dashed border-amber-200/80">
+        <div className="shuoshuo-header flex items-center pb-3 mb-3 border-b border-dashed">
           <img 
             src="https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?s=256"
             alt="异飨客"
             className="w-14 h-14 rounded-xl shadow-md object-cover"
           />
           <div className="flex flex-col ml-3">
-            <span className="text-amber-600 font-semibold text-lg">
+            <span className="shuoshuo-name font-semibold text-lg">
               异飨客
               <svg className="inline-block w-4 h-4 ml-1 align-middle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="m512 268c0 17.9-4.3 34.5-12.9 49.7s-20.1 27.1-34.6 35.4c.4 2.7.6 6.9.6 12.6 0 27.1-9.1 50.1-27.1 69.1-18.1 19.1-39.9 28.6-65.4 28.6-11.4 0-22.3-2.1-32.6-6.3-8 16.4-19.5 29.6-34.6 39.7-15 10.2-31.5 15.2-49.4 15.2-18.3 0-34.9-4.9-49.7-14.9-14.9-9.9-26.3-23.2-34.3-40-10.3 4.2-21.1 6.3-32.6 6.3-25.5 0-47.4-9.5-65.7-28.6-18.3-19-27.4-42.1-27.4-69.1 0-3 .4-7.2 1.1-12.6-14.5-8.4-26-20.2-34.6-35.4-8.5-15.2-12.8-31.8-12.8-49.7 0-19 4.8-36.5 14.3-52.3s22.3-27.5 38.3-35.1c-4.2-11.4-6.3-22.9-6.3-34.3 0-27 9.1-50.1 27.4-69.1s40.2-28.6 65.7-28.6c11.4 0 22.3 2.1 32.6 6.3 8-16.4 19.5-29.6 34.6-39.7 15-10.1 31.5-15.2 49.4-15.2s34.4 5.1 49.4 15.1c15 10.1 26.6 23.3 34.6 39.7 10.3-4.2 21.1-6.3 32.6-6.3 25.5 0 47.3 9.5 65.4 28.6s27.1 42.1 27.1 69.1c0 12.6-1.9 24-5.7 34.3 16 7.6 28.8 19.3 38.3 35.1 9.5 15.9 14.3 33.4 14.3 52.4zm-266.9 77.1 105.7-158.3c2.7-4.2 3.5-8.8 2.6-13.7-1-4.9-3.5-8.8-7.7-11.4-4.2-2.7-8.8-3.6-13.7-2.9-5 .8-9 3.2-12 7.4l-93.1 140-42.9-42.8c-3.8-3.8-8.2-5.6-13.1-5.4-5 .2-9.3 2-13.1 5.4-3.4 3.4-5.1 7.7-5.1 12.9 0 5.1 1.7 9.4 5.1 12.9l58.9 58.9 2.9 2.3c3.4 2.3 6.9 3.4 10.3 3.4 6.7-.1 11.8-2.9 15.2-8.7z" fill="#1da1f2"/>
               </svg>
             </span>
-            <span className="text-slate-500 text-sm">{formatDate(message.time)}</span>
+            <span className="shuoshuo-time text-sm">{formatDate(message.time)}</span>
           </div>
         </div>
         
         {/* 文本内容 */}
         <div 
-          className="text-slate-700 leading-relaxed"
+          className="shuoshuo-text leading-relaxed"
           dangerouslySetInnerHTML={{ __html: processText(message.text) }}
         />
         
@@ -309,7 +359,7 @@ function ShuoshuoCard({
                 href={img}
                 data-fancybox={galleryId}
                 data-caption={`图片 ${idx + 1}`}
-                className={`block rounded-xl overflow-hidden bg-slate-100 cursor-zoom-in ${idx === 0 ? 'w-full aspect-[1.8]' : 'w-[calc(25%-6px)] aspect-square'}`}
+                className={`shuoshuo-img block rounded-xl overflow-hidden cursor-zoom-in ${idx === 0 ? 'w-full aspect-[1.8]' : 'w-[calc(25%-6px)] aspect-square'}`}
               >
                 <img 
                   src={img} 
@@ -323,13 +373,13 @@ function ShuoshuoCard({
         )}
         
         {/* 底部操作栏 */}
-        <div className="mt-4 pt-3 border-t border-dashed border-amber-200/80">
+        <div className="shuoshuo-footer mt-4 pt-3 border-t border-dashed">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm bg-amber-50 rounded-xl px-3 py-1 text-amber-700 flex-shrink-0">
+            <span className="shuoshuo-tag text-sm rounded-xl px-3 py-1 flex-shrink-0">
               🏷️ 说说
             </span>
             {message.views && (
-              <span className="text-slate-400 text-sm flex-shrink-0">👁 {message.views}</span>
+              <span className="shuoshuo-views text-sm flex-shrink-0">👁 {message.views}</span>
             )}
             
             <div className="ml-auto">
@@ -342,6 +392,47 @@ function ShuoshuoCard({
           </div>
         </div>
       </div>
+      <style>{`
+        .shuoshuo-card {
+          background: var(--bg-card);
+          border-color: var(--accent-color);
+          border-color: rgba(245, 158, 11, 0.3);
+        }
+        .shuoshuo-card:hover {
+          border-color: var(--accent-color);
+        }
+        .shuoshuo-header {
+          border-color: var(--border-color);
+        }
+        .shuoshuo-name {
+          color: var(--accent-color);
+        }
+        .shuoshuo-time {
+          color: var(--text-muted);
+        }
+        .shuoshuo-text {
+          color: var(--text-secondary);
+        }
+        .shuoshuo-text a {
+          color: var(--accent-color);
+        }
+        .shuoshuo-text a:hover {
+          opacity: 0.8;
+        }
+        .shuoshuo-img {
+          background: var(--border-color);
+        }
+        .shuoshuo-footer {
+          border-color: var(--border-color);
+        }
+        .shuoshuo-tag {
+          background: rgba(245, 158, 11, 0.1);
+          color: var(--accent-color);
+        }
+        .shuoshuo-views {
+          color: var(--text-muted);
+        }
+      `}</style>
     </div>
   );
 }
@@ -546,11 +637,11 @@ export default function ShuoshuoView() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <MessageCircle className="w-8 h-8 text-amber-600" />
-            <h1 className="text-3xl font-bold text-slate-900">说说</h1>
+            <h1 className="shuoshuo-title text-3xl font-bold">说说</h1>
           </div>
           <button 
             onClick={refresh}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-amber-200 text-amber-700 hover:text-amber-800 hover:border-amber-300 hover:shadow-md transition-all"
+            className="shuoshuo-refresh-btn flex items-center gap-2 px-4 py-2 rounded-xl border transition-all"
             disabled={loading}
           >
             <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
@@ -560,7 +651,7 @@ export default function ShuoshuoView() {
         
         {/* 错误提示 */}
         {error && (
-          <div className="mb-4 p-4 rounded-xl border border-red-200 bg-red-50 text-red-600">
+          <div className="shuoshuo-error mb-4 p-4 rounded-xl border">
             <div className="flex items-center gap-2">
               <span>⚠️</span>
               <span>{error}</span>
@@ -588,7 +679,7 @@ export default function ShuoshuoView() {
             <button
               onClick={loadMore}
               disabled={loading}
-              className="px-8 py-3 rounded-xl bg-white border border-amber-200 text-amber-700 hover:text-amber-800 hover:border-amber-300 hover:shadow-lg transition-all disabled:opacity-50 shadow-sm"
+              className="shuoshuo-load-more px-8 py-3 rounded-xl border transition-all disabled:opacity-50 shadow-sm"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -604,14 +695,14 @@ export default function ShuoshuoView() {
         
         {/* 到底提示 */}
         {!hasMore && messageEntries.length > 0 && (
-          <div className="relative h-10 flex items-center justify-center my-8">
-            <span className="bg-white px-5 text-slate-400 text-sm">已经到底啦~</span>
+          <div className="shuoshuo-end relative h-10 flex items-center justify-center my-8">
+            <span className="px-5 text-sm">已经到底啦~</span>
           </div>
         )}
         
         {/* 空状态 */}
         {!loading && messageEntries.length === 0 && !error && (
-          <div className="text-center py-12 text-slate-500 bg-white rounded-xl border border-amber-100">
+          <div className="shuoshuo-empty text-center py-12 rounded-xl border">
             <MessageCircle className="w-16 h-16 mx-auto mb-4 text-amber-200" />
             <p>暂无说说内容</p>
           </div>
@@ -621,11 +712,52 @@ export default function ShuoshuoView() {
         {loading && messageEntries.length === 0 && (
           <div className="columns-1 md:columns-2 lg:columns-3 gap-3">
             {[1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="break-inside-avoid mb-3 h-48 animate-pulse bg-amber-50 rounded-xl" />
+              <div key={i} className="shuoshuo-skeleton break-inside-avoid mb-3 h-48 animate-pulse rounded-xl" />
             ))}
           </div>
         )}
       </div>
+      
+      <style>{`
+        .shuoshuo-title {
+          color: var(--text-primary);
+        }
+        .shuoshuo-refresh-btn {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+          color: var(--accent-color);
+        }
+        .shuoshuo-refresh-btn:hover {
+          border-color: var(--accent-color);
+          box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        .shuoshuo-error {
+          background: rgba(239, 68, 68, 0.1);
+          border-color: rgba(239, 68, 68, 0.3);
+          color: #ef4444;
+        }
+        .shuoshuo-load-more {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+          color: var(--accent-color);
+        }
+        .shuoshuo-load-more:hover {
+          border-color: var(--accent-color);
+          box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        .shuoshuo-end span {
+          background: var(--bg-card);
+          color: var(--text-muted);
+        }
+        .shuoshuo-empty {
+          background: var(--bg-card);
+          border-color: var(--border-color);
+          color: var(--text-muted);
+        }
+        .shuoshuo-skeleton {
+          background: var(--border-color);
+        }
+      `}</style>
     </Animation>
   );
 }

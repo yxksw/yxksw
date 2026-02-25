@@ -11,7 +11,6 @@ const FriendsList: React.FC<FriendsListProps> = ({ links }) => {
     const PAGE_SIZE = 12;
     const [currentPage, setCurrentPage] = useState(1);
 
-    // 过滤掉失联的友链
     const activeLinks = links.filter(link => !link.disconnected);
 
     const totalPages = Math.ceil(activeLinks.length / PAGE_SIZE);
@@ -35,11 +34,11 @@ const FriendsList: React.FC<FriendsListProps> = ({ links }) => {
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 mb-20">
+                <div className="pagination flex justify-center items-center gap-2 mb-20">
                     <button
                         onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                         disabled={currentPage === 1}
-                        className={`p-2 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                        className={`pagination-btn p-2 rounded-lg border transition-colors ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
                             }`}
                     >
                         <ChevronLeft size={20} />
@@ -52,9 +51,9 @@ const FriendsList: React.FC<FriendsListProps> = ({ links }) => {
                                 <button
                                     key={page}
                                     onClick={() => handlePageChange(page)}
-                                    className={`w-8 h-8 rounded-lg text-sm font-medium transition-all ${currentPage === page
-                                            ? 'bg-slate-600 text-white shadow-md scale-110'
-                                            : 'text-slate-600 hover:bg-slate-50'
+                                    className={`pagination-page w-8 h-8 rounded-lg text-sm font-medium transition-all ${currentPage === page
+                                            ? 'active'
+                                            : ''
                                         }`}
                                 >
                                     {page}
@@ -66,13 +65,35 @@ const FriendsList: React.FC<FriendsListProps> = ({ links }) => {
                     <button
                         onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                         disabled={currentPage === totalPages}
-                        className={`p-2 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+                        className={`pagination-btn p-2 rounded-lg border transition-colors ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
                             }`}
                     >
                         <ChevronRight size={20} />
                     </button>
                 </div>
             )}
+            <style>{`
+                .pagination-btn {
+                    border-color: var(--border-color);
+                    color: var(--text-secondary);
+                    background: var(--bg-card);
+                }
+                .pagination-btn:hover:not(:disabled) {
+                    background: var(--border-color);
+                }
+                .pagination-page {
+                    color: var(--text-secondary);
+                }
+                .pagination-page:hover {
+                    background: var(--border-color);
+                }
+                .pagination-page.active {
+                    background: var(--accent-color);
+                    color: white;
+                    box-shadow: 0 4px 12px var(--shadow-color);
+                    transform: scale(1.1);
+                }
+            `}</style>
         </>
     );
 };
