@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Animation from "../components/Animation";
 import { Icon } from "@iconify/react";
-import { Image as ImageIcon, Download, RotateCcw, Type, Palette, Layers, Settings, Search, Upload, X, Star, ExternalLink, Pencil, Sparkles, Wand2 } from "lucide-react";
+import { Image as ImageIcon, Download, RotateCcw, Type, Palette, Layers, Settings, Search, Upload, X, Star, ExternalLink, Pencil, Wand2 } from "lucide-react";
 
 const BASE_HEIGHT = 900;
 

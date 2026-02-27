@@ -101,6 +101,12 @@
           "icon": "picon:drive"
         },
         {
+          "name": "Donate",
+          "url": "https://sponsor.050815.xyz",
+          "description": "支持我",
+          "icon": "octicon:sponsor-tiers-16"
+        },
+        {
           "name": "代码片段",
           "url": "https://gist.152531.xyz",
           "description": "基于Github的代码片段",
