@@ -1,0 +1,136 @@
+{
+  "categories": [
+    {
+      "name": "常用工具",
+      "icon": "Wrench",
+      "sites": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com",
+          "description": "全球最大的代码托管平台",
+          "icon": "Github"
+        },
+        {
+          "name": "Vercel",
+          "url": "https://vercel.com",
+          "description": "前端部署平台",
+          "icon": "gg:vercel"
+        },
+        {
+          "name": "Cloudflare",
+          "url": "https://dash.cloudflare.com",
+          "description": "CDN 和 DNS 管理",
+          "icon": "Cloud"
+        },
+        {
+          "name": "Netlify",
+          "url": "https://app.netlify.com",
+          "description": "静态部署平台",
+          "icon": "simple-icons:netlify"
+        },
+        {
+          "name": "FreeSSL",
+          "url": "https://freessl.cn/",
+          "description": "免费SSL证书",
+          "icon": "whh:sslmanager"
+        },
+        {
+          "name": "ILoveMG",
+          "url": "https://www.iloveimg.com/zh-cn",
+          "description": "图片编辑",
+          "icon": "mdi-light:image"
+        }
+      ]
+    },
+    {
+      "name": "我部署的项目",
+      "icon": "BookOpen",
+      "sites": [
+        {
+          "name": "Cofe博客",
+          "url": "https://cofe.050815.xyz",
+          "description": "基于Github的博客自用",
+          "icon": "fa7-solid:blog"
+        },
+        {
+          "name": "Theme Clarity",
+          "url": "https://blog.314926.xyz",
+          "description": "基于 Typecho 的博客",
+          "icon": "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/zhilu.avif"
+        },
+        {
+          "name": "Go Music",
+          "url": "https://music.050815.xyz",
+          "description": "基于api的音乐播放器",
+          "icon": "mdi-light:music"
+        },
+        {
+          "name": "网站监控",
+          "url": "https://status.050815.xyz",
+          "description": "网站监控",
+          "icon": "pajamas:monitor"
+        },
+        {
+          "name": "介绍",
+          "url": "https://www.050815.xyz",
+          "description": "我的介绍页",
+          "icon": "tabler:user"
+        },
+        {
+          "name": "Han analystics",
+          "url": "https://han.050815.xyz",
+          "description": "Han网站统计",
+          "icon": "https://han.050815.xyz/assets/favicon-BK9tVQXa.ico"
+        },
+        {
+          "name": "Umami",
+          "url": "https://um.050815.xyz",
+          "description": "Umami网站统计",
+          "icon": "simple-icons:umami"
+        },
+        {
+          "name": "Cloudflare-imgbed",
+          "url": "https://imgbed.050815.xyz",
+          "description": "图床",
+          "icon": "material-symbols:photo-auto-merge-outline"
+        },
+        {
+          "name": "Cloudpaste",
+          "url": "https://pan.050815.xyz",
+          "description": "文件分享",
+          "icon": "picon:drive"
+        },
+        {
+          "name": "代码片段",
+          "url": "https://gist.152531.xyz",
+          "description": "基于Github的代码片段",
+          "icon": "tabler:code"
+        }
+      ]
+    },
+    {
+      "name": "娱乐休闲",
+      "icon": "Gamepad2",
+      "sites": [
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com",
+          "description": "视频平台",
+          "icon": "Youtube"
+        },
+        {
+          "name": "BiliBili",
+          "url": "https://www.bilibili.com",
+          "description": "视频平台",
+          "icon": "meteor-icons:bilibili"
+        },
+        {
+          "name": "Steam",
+          "url": "https://store.steampowered.com",
+          "description": "游戏平台",
+          "icon": "mdi:steam"
+        }
+      ]
+    }
+  ]
+}

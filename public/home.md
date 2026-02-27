@@ -39,6 +39,9 @@
   <a href="/shuoshuo"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%8D%B3%E5%88%BB-ffa500?style=flat&color=black&logo=message-circle&logoColor=white" alt="即刻"></a>
   <a href="/sponsor"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E8%B5%9E%E5%8A%A9-ea4aaa?style=flat&color=black&logo=heart&logoColor=white" alt="赞助"></a>
   <a href="/equipment"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E8%A3%85%E5%A4%87-6366f1?style=flat&color=black&logo=device-laptop&logoColor=white" alt="装备"></a>
+  <a href="/sites"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%AF%BC%E8%88%AA-f59e0b?style=flat&color=black&logo=compass&logoColor=white" alt="导航"></a>
+  <a href="/cover"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%B0%81%E9%9D%A2-ff6b6b?style=flat&color=black&logo=image&logoColor=white" alt="封面"></a>
+  <a href="/gallery"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E7%94%BB%E5%BB%8A-8b5cf6?style=flat&color=black&logo=images&logoColor=white" alt="画廊"></a>
   <a href="/about"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E5%85%B3%E4%BA%8E-10b981?style=flat&color=black&logo=user&logoColor=white" alt="关于"></a>
 </div>
 
