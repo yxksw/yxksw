@@ -39,6 +39,12 @@
           "url": "https://www.iloveimg.com/zh-cn",
           "description": "图片编辑",
           "icon": "mdi-light:image"
+        },
+        {
+          "name": "QQ邮箱",
+          "url": "https://wx.mail.qq.com/",
+          "description": "常用邮箱",
+          "icon": "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/qq-email.avif"
         }
       ]
     },
@@ -105,6 +111,12 @@
           "url": "https://sponsor.050815.xyz",
           "description": "支持我",
           "icon": "octicon:sponsor-tiers-16"
+        },
+        {
+          "name": "Albums",
+          "url": "https://plog.050815.xyz",
+          "description": "相册",
+          "icon": "solar:album-linear"
         },
         {
           "name": "代码片段",
