@@ -83,10 +83,52 @@
           "icon": "tabler:user"
         },
         {
-          "name": "Han analystics",
-          "url": "https://han.050815.xyz",
-          "description": "Han网站统计",
-          "icon": "https://han.050815.xyz/assets/favicon-BK9tVQXa.ico"
+          "name": "Gwitter",
+          "url": "https://gwitter.261770.xyz",
+          "description": "Github朋友圈",
+          "icon": "formkit:twitter"
+        },
+        {
+          "name": "YXK IMG",
+          "url": "https://img.261770.xyz",
+          "description": "我的图床",
+          "icon": "formkit:twitter"
+        },
+        {
+          "name": "Github-home",
+          "url": "https://cv.050815.xyz",
+          "description": "基于Github的主页",
+          "icon": "line-md:github-twotone"
+        },
+        {
+          "name": "yxksw-imm",
+          "url": "https://imm.050815.xyz",
+          "description": "Astro-imm主题",
+          "icon": "skill-icons:astro"
+        },
+        {
+          "name": "60S",
+          "url": "https://60s.050815.xyz",
+          "description": "60sAPI",
+          "icon": "hugeicons:apio"
+        },
+        {
+          "name": "60S",
+          "url": "https://60s.050815.xyz",
+          "description": "60sAPI",
+          "icon": "hugeicons:apio"
+        },
+        {
+          "name": "Html工具集",
+          "url": "https://yxksw.github.io/html",
+          "description": "静态工具集",
+          "icon": "tabler:tool"
+        },
+        {
+          "name": "Grok-api",
+          "url": "https://grok.050815.xyz",
+          "description": "Grok-api",
+          "icon": "mingcute:grok-2-fill"
         },
         {
           "name": "Umami",
