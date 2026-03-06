@@ -131,6 +131,12 @@
           "icon": "mingcute:grok-2-fill"
         },
         {
+          "name": "免费临时邮箱",
+          "url": "https://freemail.zsx815.top/",
+          "description": "临时邮箱",
+          "icon": "flat-ui:mail"
+        },
+        {
           "name": "Umami",
           "url": "https://um.050815.xyz",
           "description": "Umami网站统计",
