@@ -143,6 +143,18 @@
           "icon": "flat-ui:mail"
         },
         {
+          "name": "瞬间pulse",
+          "url": "https://memos.261770.xyz/",
+          "description": "瞬间pulse",
+          "icon": "mingcute:moment-line"
+        },
+        {
+          "name": "Short",
+          "url": "https://short.050815.xyz/",
+          "description": "文字分享",
+          "icon": "icon-park:word"
+        },
+        {
           "name": "Umami",
           "url": "https://um.050815.xyz",
           "description": "Umami网站统计",
