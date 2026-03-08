@@ -110,13 +110,7 @@
           "name": "60S",
           "url": "https://60s.050815.xyz",
           "description": "60sAPI",
-          "icon": "hugeicons:apio"
-        },
-        {
-          "name": "60S",
-          "url": "https://60s.050815.xyz",
-          "description": "60sAPI",
-          "icon": "hugeicons:apio"
+          "icon": "https://img.261770.xyz/file/AgACAgUAAyEGAATgj73zAAMIaa2fM8kZeyr3VisV8IV2cEkOylAAAl0QaxsRT2lVCzFYeqomjKABAAMCAANtAAM6BA.png"
         },
         {
           "name": "Html工具集",
