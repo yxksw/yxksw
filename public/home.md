@@ -42,6 +42,7 @@
   <a href="/sites"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%AF%BC%E8%88%AA-f59e0b?style=flat&color=black&logo=compass&logoColor=white" alt="导航"></a>
   <a href="/cover"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E5%B0%81%E9%9D%A2-ff6b6b?style=flat&color=black&logo=image&logoColor=white" alt="封面"></a>
   <a href="/gallery"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-%E7%94%BB%E5%BB%8A-8b5cf6?style=flat&color=black&logo=images&logoColor=white" alt="画廊"></a>
+  <a href="/artitalk"><img style="display: inline-block; margin-right: 10px;" src="https://img.shields.io/badge/-Artitalk-06b6d4?style=flat&color=black&logo=message-square&logoColor=white" alt="Artitalk"></a>
   <a href="/about"><img style="display: inline-block;" src="https://img.shields.io/badge/-%E5%85%B3%E4%BA%8E-10b981?style=flat&color=black&logo=user&logoColor=white" alt="关于"></a>
 </div>
 

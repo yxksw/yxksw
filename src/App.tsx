@@ -1,5 +1,5 @@
 import { Route, Routes, Link, useLocation, Outlet } from "react-router-dom";
-import { Home, Github, Book, Film, Link2, Laptop, Compass, Image as ImageIcon } from "lucide-react";
+import { Home, Github, Book, Film, Link2, Laptop, Compass, Image as ImageIcon, MessageSquare } from "lucide-react";
 import BangumiView from "./view/BangumiView";
 import BlogView from "./view/BlogView";
 import GithubView from "./view/GithubView";
@@ -13,6 +13,7 @@ import AboutView from "./view/AboutView";
 import SitesView from "./view/SitesView";
 import CoverView from "./view/CoverView";
 import GalleryView from "./view/GalleryView";
+import ArtitalkView from "./view/ArtitalkView";
 import NotFoundView from "./view/NotFoundView";
 import MusicCapsule from "./components/MusicCapsule";
 import ThemeToggle from "./components/ThemeToggle";
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/sites" element={<SitesView />}></Route>
           <Route path="/cover" element={<CoverView />}></Route>
           <Route path="/gallery" element={<GalleryView />}></Route>
+          <Route path="/artitalk" element={<ArtitalkView />}></Route>
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </div>
