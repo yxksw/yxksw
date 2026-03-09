@@ -36,6 +36,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  cursor: url('/src/assets/default.cur'), default;
 }
 
 .dark body {
