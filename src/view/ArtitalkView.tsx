@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Animation from "../components/Animation";
 import { MessageSquare, Send, Trash2, Image as ImageIcon, X, Loader2, Lock, User } from "lucide-react";
 
-const API_BASE = "https://artitalk.050815.xyz/api";
+const API_BASE = "https://artitalk-api.050815.xyz/api";
 
 interface Shuoshuo {
   id: string;
