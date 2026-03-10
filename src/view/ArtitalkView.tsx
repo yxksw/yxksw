@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Animation from "../components/Animation";
 import { MessageSquare, Send, Trash2, Image as ImageIcon, X, Loader2, Lock, User } from "lucide-react";
+import { marked } from "marked";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const API_BASE = "https://artitalk-api.050815.xyz/api";
 
@@ -80,6 +83,21 @@ export default function ArtitalkView() {
     }
   }, []);
 
+  // Custom markdown renderer with Fancybox support
+  const renderMarkdown = (content: string) => {
+    const renderer = new marked.Renderer();
+    
+    // Override image renderer to add Fancybox
+    renderer.image = (href: string, title: string | null, text: string) => {
+      return `<a href="${href}" data-fancybox="gallery" data-caption="${text || title || ''}">
+        <img src="${href}" alt="${text}" loading="lazy" />
+      </a>`;
+    };
+    
+    marked.setOptions({ renderer });
+    return marked(content);
+  };
+
   useEffect(() => {
     fetchShuoshuos(0);
     // Check if user is logged in
@@ -87,6 +105,33 @@ export default function ArtitalkView() {
     if (savedUser && token) {
       setUser(JSON.parse(savedUser));
     }
+    
+    // Initialize Fancybox
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      // @ts-ignore - Fancybox options type mismatch
+      Toolbar: {
+        display: {
+          left: ["infobar"],
+          middle: [
+            "zoomIn",
+            "zoomOut",
+            "toggle1to1",
+            "rotateCCW",
+            "rotateCW",
+            "flipX",
+            "flipY",
+          ],
+          right: ["slideshow", "fullscreen", "thumbs", "close"],
+        },
+      },
+      Thumbs: {
+        type: "classic",
+      },
+    } as any);
+    
+    return () => {
+      Fancybox.destroy();
+    };
   }, [fetchShuoshuos, token]);
 
   // Login
@@ -442,7 +487,7 @@ export default function ArtitalkView() {
 
                 <div
                   className="shuoshuo-content"
-                  dangerouslySetInnerHTML={{ __html: item.attributes.atContentHtml }}
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(item.attributes.atContentMd) }}
                 />
               </div>
             ))
@@ -871,8 +916,118 @@ export default function ArtitalkView() {
           line-height: 1.6;
         }
 
+        .shuoshuo-content > *:first-child {
+          margin-top: 0;
+        }
+
+        .shuoshuo-content > *:last-child {
+          margin-bottom: 0;
+        }
+
         .shuoshuo-content p {
-          margin: 0;
+          margin: 0 0 12px 0;
+        }
+
+        .shuoshuo-content strong {
+          font-weight: 600;
+        }
+
+        .shuoshuo-content em {
+          font-style: italic;
+        }
+
+        .shuoshuo-content code {
+          background: var(--bg-secondary);
+          padding: 2px 4px;
+          border-radius: 4px;
+          font-size: 0.9em;
+          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+
+        .shuoshuo-content pre {
+          background: var(--bg-secondary);
+          padding: 12px;
+          border-radius: 8px;
+          overflow-x: auto;
+          margin: 12px 0;
+        }
+
+        .shuoshuo-content pre code {
+          background: transparent;
+          padding: 0;
+        }
+
+        .shuoshuo-content a {
+          color: var(--accent-color);
+          text-decoration: none;
+        }
+
+        .shuoshuo-content a:hover {
+          text-decoration: underline;
+        }
+
+        .shuoshuo-content a[data-fancybox] {
+          display: inline-block;
+          cursor: zoom-in;
+        }
+
+        .shuoshuo-content a[data-fancybox] img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .shuoshuo-content a[data-fancybox]:hover img {
+          transform: scale(1.02);
+          box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .shuoshuo-content ul {
+          list-style-type: disc;
+          margin: 12px 0;
+          padding-left: 24px;
+        }
+
+        .shuoshuo-content ol {
+          list-style-type: decimal;
+          margin: 12px 0;
+          padding-left: 24px;
+        }
+
+        .shuoshuo-content li {
+          margin: 4px 0;
+          display: list-item;
+        }
+
+        .shuoshuo-content blockquote {
+          border-left: 4px solid var(--accent-color);
+          padding-left: 12px;
+          margin: 12px 0;
+          color: var(--text-secondary);
+          font-style: italic;
+        }
+
+        .shuoshuo-content h1,
+        .shuoshuo-content h2,
+        .shuoshuo-content h3,
+        .shuoshuo-content h4,
+        .shuoshuo-content h5,
+        .shuoshuo-content h6 {
+          margin: 16px 0 8px 0;
+          font-weight: 600;
+        }
+
+        .shuoshuo-content h1 {
+          font-size: 1.5em;
+        }
+
+        .shuoshuo-content h2 {
+          font-size: 1.3em;
+        }
+
+        .shuoshuo-content h3 {
+          font-size: 1.1em;
         }
 
         .load-more {
