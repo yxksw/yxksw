@@ -15,8 +15,7 @@ interface Sponsor {
 const WECHAT_QR = "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/weixin.avif";
 const ALIPAY_QR = "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/zhifubao.avif";
 const THANKYOU_IMG = "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/thankyou.avif";
-const SPONSORS_URL = "https://friends.152531.xyz/data/sponsors.json";
-
+const SPONSORS_URL = "https://cdn.jsdmirror.com/gh/yxksw/Friends@main/data/sponsors.json";
 export default function SponsorView() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
   const [loading, setLoading] = useState(true);

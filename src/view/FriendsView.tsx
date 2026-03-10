@@ -20,7 +20,7 @@ interface FriendLink {
 }
 
 // 远程友链数据源
-const REMOTE_FRIENDS_URL = "https://friends.152531.xyz/data/friends.ts";
+const REMOTE_FRIENDS_URL = "https://cdn.jsdmirror.com/gh/yxksw/Friends@main/data/friends.ts";
 
 export default function FriendsView() {
   const [friendLinks, setFriendLinks] = useState<FriendLink[]>([]);
