@@ -59,6 +59,22 @@
       "money": 299
     },
     {
+      "name": "唐麦 Q8",
+      "image": "https://www.tonemay.cn/uploadfile/file/20251025/1761361768869031.png",
+      "src": "https://www.tonemay.cn/ows/5.html",
+      "category": "外设",
+      "desc": "无线开放式耳机，续航、音质还不错。",
+      "info": {
+        "降噪": "20Hz-40KHz",
+        "续航": "40小时(含充电盒)",
+        "连接": "蓝牙6.0",
+        "重量": "4.5g/只"
+      },
+      "tags": ["耳机", "无线", "游戏"],
+      "date": "2026-02-28",
+      "money": 252
+    },
+    {
       "name": "iQOO 11",
       "image": "https://shopstatic.vivo.com.cn/vivoshop/commodity/52/10007952_1669636269985_750x750.png.webp",
       "src": "https://shop.vivo.com.cn/product/10007952?skuId=125337",
