@@ -7,7 +7,7 @@ export default {
     Aboutname: "异飨客",
 
     // 头像
-    Avatar: "https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256",
+    Avatar: "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/yxk-avatar.avif",
 
     // 介绍
     Desc: "👋 Hi! 欢迎来到 异飨客 的主页",
@@ -45,7 +45,7 @@ export default {
         Title: "异飨客 的主页",
 
         // 站点图标
-        Favicon: "https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256",
+        Favicon: "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/yxk-avatar.avif",
 
         // 站点关键词 多个使用 “,” 分割
         KeyWords: "❖塔罗会,主页",

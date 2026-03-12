@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Animation from "../components/Animation";
-import { Laptop, Package, ExternalLink, Calendar, Tag } from "lucide-react";
+import { Laptop, Package, ExternalLink, Calendar, Tag, LucideIcon } from "lucide-react";
 
 interface EquipmentItem {
   name: string;
@@ -14,118 +14,90 @@ interface EquipmentItem {
   money: number;
 }
 
-const EQUIPMENT_DATA: EquipmentItem[] = [
-  {
-    name: "机械革命 极光PRO 2022",
-    image: "https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/jxgm.avif",
-    src: "https://www.mechrevo.com/",
-    category: '硬件',
-    desc: "主力开发笔记本，轻薄游戏本，性价比之选",
-    info: {
-      "芯片": "Intel® Core™ i7-12700H",
-      "内存": "16GB DDR4 3200MHz",
-      "显卡": "NVIDIA® GeForce RTX™ 3060",
-      "存储": "512GB PCIe 3.0 SSD",
-      "屏幕": "15.6英寸 165Hz",
-      "重量": "2.07kg"
-    },
-    tags: ['游戏本', 'Intel', 'RTX3060'],
-    date: "2022-07-15",
-    money: 7299,
-  },
-  {
-    name: "罗技 G502 HERO",
-    image: "https://resource.logitechg.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502-hero/g502-hero-gallery-1.png",
-    src: "https://www.logitechg.com/zh-cn/shop/p/g502-hero-gaming-mouse.910-005474",
-    category: '外设',
-    desc: "专为先进游戏性能而设计，配备 HERO 25K 游戏传感器，具有亚微米精度追踪、可自定义 LIGHTSYNC RGB",
-    info: {
-      "传感器": "HERO 25K",
-      "DPI": "200 - 25,600",
-      "按键": "11个可编程",
-      "RGB": "LIGHTSYNC",
-      "配重": "5个3.6g配重",
-      "重量": "121g"
-    },
-    tags: ['鼠标', '游戏', 'RGB'],
-    date: "2025-04-15",
-    money: 209,
-  },
-  {
-    name: "西伯利亚 S21GS",
-    image: "https://27450057.s21i.faiusr.com/2/ABUIABACGAAgsf3NtwYo4KunuAMwoAY4oAY.jpg.webp",
-    src: "https://www.xiberia.net/h-pd-138.html",
-    category: '外设',
-    desc: "无线电竞耳机，2.4G/蓝牙双模，低延迟游戏耳机",
-    info: {
-      "类型": "无线电竞耳机",
-      "连接": "2.4G/蓝牙5.3",
-      "驱动": "50mm单元",
-      "续航": "约30小时",
-      "重量": "约280g",
-      "颜色": "铁灰色/火焰风暴"
-    },
-    tags: ['耳机', '无线', '游戏'],
-    date: "2024-04-15",
-    money: 299,
-  },
-  {
-    name: "iQOO 11",
-    image: "https://shopstatic.vivo.com.cn/vivoshop/commodity/52/10007952_1669636269985_750x750.png.webp",
-    src: "https://shop.vivo.com.cn/product/10007952?skuId=125337",
-    category: '硬件',
-    desc: "主力手机，骁龙8 Gen2，2K 144Hz E6屏幕，游戏性能强悍",
-    info: {
-      "芯片": "骁龙 8 Gen 2",
-      "内存": "16GB LPDDR5X",
-      "存储": "512GB UFS 4.0",
-      "屏幕": "6.78英寸 144Hz",
-      "电池": "5000mAh",
-      "重量": "205g"
-    },
-    tags: ['手机', '安卓', '游戏'],
-    date: "2022-12-12",
-    money: 4399,
-  },
-  {
-    name: "iQOO TWS 1e",
-    image: "https://shopstatic.vivo.com.cn/vivoshop/commodity/26/10009426_1709192548304_750x750.png.webp",
-    src: "https://shop.vivo.com.cn/product/10009286?skuId=130649",
-    category: '外设',
-    desc: "真无线降噪耳机，44小时超长续航，AI通话降噪",
-    info: {
-      "降噪": "主动降噪",
-      "续航": "44小时(含充电盒)",
-      "驱动": "11mm动圈",
-      "防水": "IP54",
-      "连接": "蓝牙5.3",
-      "重量": "4.4g/只"
-    },
-    tags: ['耳机', '降噪', '无线'],
-    date: "2023-12-21",
-    money: 179,
-  },
-];
+interface CategoryConfig {
+  key: '硬件' | '外设' | '软件';
+  label: string;
+  icon: string;
+  color: string;
+}
 
-const CATEGORIES = [
-  { key: '硬件', label: '硬件', icon: Laptop, color: '#3b82f6' },
-  { key: '外设', label: '外设', icon: Package, color: '#10b981' },
-] as const;
+type CategoryWithIcon = Omit<CategoryConfig, 'icon'> & {
+  icon: LucideIcon;
+};
+
+interface EquipmentData {
+  categories: CategoryConfig[];
+  items: EquipmentItem[];
+}
+
+const iconMap: Record<string, LucideIcon> = {
+  Laptop,
+  Package,
+};
 
 export default function EquipmentView() {
+  const [data, setData] = useState<EquipmentData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string>('硬件');
 
+  useEffect(() => {
+    fetch('/data/equipment.json')
+      .then(res => res.json())
+      .then((data: EquipmentData) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('获取装备数据失败:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  const categories = useMemo<CategoryWithIcon[]>(() => {
+    if (!data) return [];
+    return data.categories.map(cat => ({
+      ...cat,
+      icon: iconMap[cat.icon] || Package,
+    }));
+  }, [data]);
+
   const filteredEquipment = useMemo(() => {
-    return EQUIPMENT_DATA.filter(item => item.category === activeCategory);
-  }, [activeCategory]);
+    if (!data) return [];
+    return data.items.filter(item => item.category === activeCategory);
+  }, [data, activeCategory]);
 
   const getCategoryCount = (category: string) => {
-    return EQUIPMENT_DATA.filter(item => item.category === category).length;
+    if (!data) return 0;
+    return data.items.filter(item => item.category === category).length;
   };
 
   const totalMoney = useMemo(() => {
-    return EQUIPMENT_DATA.reduce((sum, item) => sum + item.money, 0);
-  }, []);
+    if (!data) return 0;
+    return data.items.reduce((sum, item) => sum + item.money, 0);
+  }, [data]);
+
+  if (loading) {
+    return (
+      <Animation id="equipment">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <p className="text-gray-500">加载中...</p>
+          </div>
+        </div>
+      </Animation>
+    );
+  }
+
+  if (!data) {
+    return (
+      <Animation id="equipment">
+        <div className="text-center py-12">
+          <p className="text-gray-500">加载装备数据失败</p>
+        </div>
+      </Animation>
+    );
+  }
 
   return (
     <Animation id="equipment">
@@ -145,11 +117,11 @@ export default function EquipmentView() {
         <div className="equipment-stats rounded-2xl border p-6 mb-8 text-center">
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{EQUIPMENT_DATA.length}</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{data.items.length}</p>
               <p className="equipment-stat-label text-sm">装备总数</p>
             </div>
             <div>
-              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{CATEGORIES.length}</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--accent-color)' }}>{categories.length}</p>
               <p className="equipment-stat-label text-sm">分类数量</p>
             </div>
             <div>
@@ -162,7 +134,7 @@ export default function EquipmentView() {
         {/* 分类标签 */}
         <div className="flex justify-center mb-8">
           <div className="equipment-tabs inline-flex rounded-xl p-1.5">
-            {CATEGORIES.map((category) => {
+            {categories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.key;
               return (
@@ -190,7 +162,7 @@ export default function EquipmentView() {
         {/* 装备列表 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredEquipment.map((item, index) => (
-            <EquipmentCard key={index} item={item} />
+            <EquipmentCard key={index} item={item} categories={categories} />
           ))}
         </div>
 
@@ -244,8 +216,8 @@ export default function EquipmentView() {
   );
 }
 
-function EquipmentCard({ item }: { item: EquipmentItem }) {
-  const categoryConfig = CATEGORIES.find(c => c.key === item.category);
+function EquipmentCard({ item, categories }: { item: EquipmentItem; categories: CategoryWithIcon[] }) {
+  const categoryConfig = categories.find(c => c.key === item.category);
   const categoryColor = categoryConfig?.color || '#3b82f6';
 
   return (

@@ -2,7 +2,7 @@
 
 # [![Typing SVG](https://readme-typing-svg.demolab.com?font=Rubik+Glitch&size=40&pause=2000&color=23B3F7&vCenter=true&random=true&height=40&&lines=Hello!+Followers%F0%9F%96%90;%E6%88%91%E6%98%AF+%E2%80%94%E2%80%94%E5%BC%82%E9%A3%A8%E5%AE%A2)](https://git.io/typing-svg)
 
-<img align='right' src="https://cn.cravatar.com/avatar/eb7277a11fa4dc00606e73afda41aeeb?=256" width="150" alt="person">
+<img align='right' src="https://cdn.jsdmirror.com/gh/zsxcoder/github-img@main/img/yxk-avatar.avif" width="150" alt="person">
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Convergence&pause=1000&color=23B3F7&vCenter=true&random=true&height=20&lines=每一段旅行，都有终点。)](https://git.io/typing-svg)
 
